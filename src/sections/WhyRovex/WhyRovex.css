@@ -1,0 +1,50 @@
+/* Why Rovex — Figma frame y 888 → 1758 */
+.why { background: var(--c-bg); padding: 53px 0 90px; }
+
+.why__grid {
+  display: grid;
+  grid-template-columns: 578px 628px;
+  column-gap: 74px;
+  align-items: start;
+}
+
+.why__heading {
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 52px;          /* 4 lines → 208px box, as in Figma */
+  white-space: pre-wrap;      /* the frame keeps the double spaces */
+}
+.why__body {
+  margin-top: 43px;           /* heading box ends 1149, body starts 1192 */
+  width: 543px;
+  max-width: 100%;
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--c-text-muted);
+  white-space: pre-wrap;
+}
+
+.why__title {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.22;
+  text-transform: uppercase;
+  max-width: 519px;
+}
+
+@media (max-width: 1439px) {
+  .why__grid { grid-template-columns: 1.02fr 1.1fr; column-gap: 56px; }
+  .why__body { width: auto; }
+}
+
+@media (max-width: 1100px) {
+  .why { padding-top: 72px; }
+  .why__grid { grid-template-columns: 1fr; row-gap: 56px; }
+  .why__heading { font-size: 34px; }
+}
+
+@media (max-width: 640px) {
+  .why__heading { font-size: 28px; }
+  .why__body { font-size: 16px; line-height: 26px; }
+  .why__title { font-size: 24px; }
+}

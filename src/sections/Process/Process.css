@@ -1,0 +1,89 @@
+/* How we work — Figma frame y 1758 → 2378 */
+.process {
+  position: relative;
+  background: var(--c-bg-alt);
+  padding: 97px 0 109px;
+  overflow: hidden;
+}
+
+/* 7:110 — blue glow bleeding in from the left edge.
+   Rebuilt as a radial gradient; the flattened SVG could not be downloaded. */
+.process__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(560px 597px at 0 192px,
+    rgba(0, 0, 234, .42)   0%,
+    rgba(0, 0, 234, .41)   2%,
+    rgba(0, 0, 234, .26)  27%,
+    rgba(0, 0, 234, .14)  50%,
+    rgba(0, 0, 234, .07)  69%,
+    rgba(0, 0, 234, .04)  80%,
+    rgba(0, 0, 234, 0)   100%);
+  pointer-events: none;
+}
+.process .container { position: relative; z-index: 1; }
+
+.process__heading {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.22;
+  text-transform: uppercase;
+  white-space: pre-wrap;
+}
+
+/* 7:112 — full-width 3px rule the numbered discs sit on (ends at y 2011) */
+.process__rail {
+  position: relative;
+  margin-top: 112px;          /* heading box ends 1896 → rule 2008–2011 */
+  border-top: 3px solid var(--c-blue);
+}
+
+.process__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 24.5px;
+  margin-top: -34px;          /* pull discs back up over the rule */
+}
+
+.step__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--c-blue);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.step__title {
+  margin-top: 38px;           /* disc ends 2047 → title 2085 */
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.22;
+}
+.step__title--single { margin-top: 39px; }
+
+.step__body {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.22;
+  color: var(--c-text-muted);
+  white-space: pre-wrap;
+}
+.step__title--single + .step__body { margin-top: 39px; }
+
+@media (max-width: 1100px) {
+  .process { padding: 72px 0 80px; }
+  .process__grid { grid-template-columns: repeat(2, 1fr); row-gap: 48px; column-gap: 32px; margin-top: 0; }
+  .process__rail { display: none; }
+  .step__title, .step__title--single { margin-top: 24px; }
+  .step__body, .step__title--single + .step__body { margin-top: 14px; }
+}
+
+@media (max-width: 640px) {
+  .process__heading { font-size: 24px; }
+  .process__grid { grid-template-columns: 1fr; }
+}

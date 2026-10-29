@@ -1,0 +1,59 @@
+/* Projects — Figma frame y 2378 → 3519 */
+.projects { background: var(--c-bg); padding: 120px 0 85px; }
+
+.projects__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+.projects__heading {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.22;
+  text-transform: uppercase;
+}
+.projects__sub {
+  margin-top: 11px;           /* heading box ends 2539 → sub 2550 */
+  font-size: 16px;
+  line-height: 1.22;
+}
+.projects__all {
+  flex: none;
+  width: 210px;
+  padding-bottom: 6px;        /* text box ends 2562 → 2px rule ending at 2570 */
+  border-bottom: 2px solid var(--c-blue);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.22;
+}
+.projects__all:hover { border-bottom-color: #4d4dff; }
+
+.projects__rowA {
+  display: grid;
+  grid-template-columns: 737fr 519fr;
+  gap: 24px;
+  margin-top: 64px;           /* sub box ends 2570 → cards 2634 */
+}
+.projects__stack { display: grid; grid-template-rows: 1fr 1fr; gap: 24px; }
+
+.projects__rowB {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 23.5px;
+  margin-top: 23px;
+}
+
+@media (max-width: 1100px) {
+  .projects { padding: 80px 0 64px; }
+  .projects__rowA { grid-template-columns: 1fr; margin-top: 48px; }
+  .projects__rowB { grid-template-columns: repeat(2, 1fr); }
+  .projects__heading { font-size: 28px; }
+}
+
+@media (max-width: 640px) {
+  .projects__heading { font-size: 24px; }
+  .projects__head { flex-direction: column; align-items: flex-start; }
+  .projects__all { width: auto; }
+  .projects__rowB { grid-template-columns: 1fr; }
+}

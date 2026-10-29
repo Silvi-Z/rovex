@@ -1,0 +1,31 @@
+/* Design tokens — palette sampled from the Figma frame "Desktop - 1" (2:2). */
+:root {
+  --c-bg:            #0b0b0f;
+  --c-bg-alt:        #12121b;
+  --c-blue:          #0000ea;
+  --c-white:         #ffffff;
+  --c-black:         #000000;
+  --c-text-muted:    #a1a1a1;
+  --c-text-dim:      #c5c5c5;
+  --c-text-faint:    #7c7a7a;
+  --c-rule:          rgba(255, 255, 255, 0.2);   /* accordion dividers */
+  --c-rule-footer:   rgba(255, 255, 255, 0.14);  /* footer divider */
+  --c-cell-border:   #c5c5c5;
+
+  /* layout */
+  --page-w:    1440px;
+  --content-w: 1280px;
+  --gutter:    80px;
+
+  --radius: 6px;
+
+  --font: "Montserrat arm", "Montserrat", "Noto Sans Armenian",
+          system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Inter was not supplied; the footer meta line falls back to a UI stack. */
+  --font-meta: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* The 1440px reference stays pixel-exact; below it the gutters tighten. */
+@media (max-width: 1439px) { :root { --gutter: 48px; } }
+@media (max-width: 1100px) { :root { --gutter: 40px; } }
+@media (max-width:  640px) { :root { --gutter: 20px; } }

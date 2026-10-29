@@ -1,0 +1,11 @@
+/* Only "Montserrat arm Regular" was supplied. The design also calls for
+   Light / Medium / SemiBold / Bold / ExtraLight cuts — drop those files in
+   public/assets/fonts/ and add a @font-face block per weight to remove the
+   browser's synthetic bolding. */
+@font-face {
+  font-family: "Montserrat arm";
+  src: url("/assets/fonts/Montserratarm-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

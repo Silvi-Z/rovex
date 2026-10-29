@@ -1,0 +1,64 @@
+/* Reset, page shell, container and the shared button styles. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-white);
+  font-family: var(--font);
+  font-weight: 400;
+  line-height: 1.22;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a   { color: inherit; text-decoration: none; }
+h1, h2, h3, h4, p, figure, ul, ol { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* The header is absolutely positioned against this shell, exactly as it was
+   against the hero in the original page. */
+.app { position: relative; min-height: 100vh; }
+
+.container {
+  width: min(var(--content-w), 100% - var(--gutter) * 2);
+  margin-inline: auto;
+}
+
+/* Pages that have no content yet still need to fill the viewport so the
+   header has a backdrop. */
+.page--blank { min-height: 100vh; }
+
+/* ------------------------------- buttons -------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn--primary { background: var(--c-blue); color: var(--c-white); }
+.btn--primary:hover { background: #1a1aff; }
+
+.btn--ghost {
+  border: 1px solid var(--c-white);
+  color: var(--c-white);
+}
+.btn--ghost:hover { background: rgba(255, 255, 255, .12); }
+
+.btn--white { background: var(--c-white); color: var(--c-blue); font-weight: 600; }
+.btn--white:hover { background: #e9e9ff; }
+
+/* hero button metrics: 55px tall, 16px label */
+.btn--hero { height: 55px; font-size: 16px; padding-inline: 24px; }
+
+/* --- motion ------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

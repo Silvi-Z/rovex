@@ -1,0 +1,60 @@
+/* Header — Figma frame y 26 → 73 */
+.nav {
+  position: absolute;
+  top: 26px; left: 0; right: 0;
+  z-index: 10;
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  height: 47px;
+}
+.nav__logo img { width: 148px; height: 38px; }
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 82px;          /* logo right edge 228 → first link 310 */
+  font-size: 14px;
+}
+.nav__link { position: relative; }
+.nav__link.is-active::after {  /* 3:13 — underline, y 67 */
+  content: "";
+  position: absolute;
+  /* The frame's rule starts at the label's left edge and overhangs it on the
+     right by 4.3px (label 91.7 → rule 96). Expressed as an offset instead of
+     the frame's hard-coded 96px so the indicator fits any nav item. */
+  left: 0; right: -4.3px;
+  top: calc(50% + 15.5px);     /* nav row centre 49.5 → 2px rule ending at 67 */
+  height: 2px;
+  background: var(--c-blue);
+}
+.nav__link:hover { color: var(--c-text-dim); }
+
+.nav__lang { white-space: nowrap; }
+.nav__lang-sep { color: var(--c-text-faint); }
+
+.nav__cta {
+  margin-left: 18px;
+  height: 47px;
+  width: 250px;
+  font-size: 14px;
+  flex: none;
+}
+
+.nav__burger { display: none; }
+
+@media (max-width: 1100px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+  }
+  .nav__burger span { display: block; height: 2px; background: var(--c-white); }
+}
