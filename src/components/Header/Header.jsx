@@ -20,6 +20,7 @@ export default function Header() {
         <div className="container nav__inner">
           <Link className="nav__logo" to="/" aria-label="Rovex">
             <img src="/assets/logo-rovex-header.svg" width="170" height="44" alt="Rovex" />
+
           </Link>
 
           <nav className="nav__links" aria-label="Հիմնական">

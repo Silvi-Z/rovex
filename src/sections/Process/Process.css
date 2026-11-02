@@ -37,6 +37,7 @@
    paints in tree order, so the discs cover it and the numbers stay clean —
    which is how the frame layers it. */
 .process__rail {
+
   margin-top: 112px;          /* heading box ends 1896 → rule 2008–2011 */
   border-top: 3px solid var(--c-blue);
 }

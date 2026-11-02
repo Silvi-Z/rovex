@@ -19,3 +19,4 @@ export const NAV_ITEMS = [
 ];
 
 export const LANGUAGES = { active: 'ՀԱՅ', inactive: '/EN/РУ' };
+

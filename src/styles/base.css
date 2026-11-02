@@ -53,6 +53,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .btn--ghost:hover { background: rgba(255, 255, 255, .12); }
 
 .btn--white { background: var(--c-white); color: var(--c-blue-deep); font-weight: 600; }
+
 .btn--white:hover { background: #e9e9ff; }
 
 /* hero button metrics: 55px tall, 16px label */

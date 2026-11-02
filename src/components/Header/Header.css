@@ -1,6 +1,7 @@
 /* Header — Figma group 58:283, frame y 26 → 79.
    The three parts sit at different heights in the frame, so the row is
    top-aligned and each child carries its own offset from y 26. */
+
 .nav {
   position: absolute;
   top: 26px; left: 0; right: 0;
@@ -29,6 +30,7 @@
 }
 .nav__link { position: relative; }
 .nav__link.is-active::after {  /* 3:13 — underline, y 65 → 67 */
+
   content: "";
   position: absolute;
   /* The frame's rule starts at the label's left edge and overhangs it on the
@@ -49,6 +51,7 @@
      it there rather than at a fixed 22px gap keeps it exact as label widths
      shift with the font. */
   margin-left: auto;
+
   height: 47px;
   width: 250px;
   font-size: 14px;
@@ -61,6 +64,7 @@
    burger there — earlier than the rest of the page reflows (still at 1100).
    1366px laptops keep the full nav. */
 @media (max-width: 1350px) {
+
   .nav__links, .nav__cta { display: none; }
   .nav__burger {
     display: flex;
