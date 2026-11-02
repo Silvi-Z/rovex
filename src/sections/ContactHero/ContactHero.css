@@ -1,0 +1,114 @@
+/* Contact hero — Figma frame 55:12, y 0 → 1023 */
+.chero {
+  position: relative;
+  min-height: 1023px;
+  overflow: hidden;
+  background: var(--c-bg);
+}
+
+/* Two blue glows, fitted to the frame's render: one in the top-right corner
+   behind the header, a stronger one in the bottom-left. */
+.chero__glow { position: absolute; inset: 0; pointer-events: none; }
+.chero__glow--top {
+  background: radial-gradient(632px 560px at 100% 0,
+    rgba(0, 0, 234, .60) 0%, rgba(0, 0, 234, 0) 100%);
+}
+.chero__glow--bottom {
+  background: radial-gradient(760px 640px at 0 100%,
+    rgba(0, 0, 234, 1) 0%, rgba(0, 0, 234, 0) 100%);
+}
+
+.chero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 519px;
+  align-items: start;
+  padding-top: 254px;         /* card top 254 */
+}
+
+/* ----------------------------- left column ------------------------------ */
+.chero__intro { padding-top: 0; }
+
+.chero__title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.22;
+  text-transform: uppercase;
+}
+.chero__lead {
+  margin-top: 9px;            /* lead ink lands on the frame's 427 */
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.chero__contacts {
+  margin-top: 65px;           /* first icon lands on the frame's 553 */
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+/* the frame spaces the third row ~5px tighter than the first two */
+.chero__contact:last-child { margin-top: -5px; }
+
+.chero__contact {
+  display: grid;
+  grid-template-columns: 72px 1fr;   /* icon column; text starts at x 152 */
+  align-items: center;
+  font-size: 28px;
+  /* Light, not Regular: the frame's render draws these three lines with ~27%
+     less ink and a 1.4x thinner stem than a 400 cut. (200 undershoots by the
+     same margin, so the frame's own value sits between the two cuts and 300 is
+     the closest one installed.) */
+  font-weight: 300;
+  line-height: 1.22;
+  color: var(--c-text-dim);
+}
+.chero__contact-icon { justify-self: start; }
+.chero__contact a:hover { color: var(--c-white); }
+
+/* The frame does not put the three rows on one text column: the phone number
+   hangs ~7px to the left of the address and the mail line, and the first two
+   rows sit a couple of pixels lower than a shared baseline would place them.
+   These offsets reproduce that rather than regularising it. */
+.chero__contact > :last-child { position: relative; }
+.chero__contact--address > :last-child { top: 2px; }
+.chero__contact--phone   > :last-child { top: -3px; left: -8px; }
+.chero__contact--phone .chero__contact-icon { margin-left: 3px; }
+
+@media (max-width: 1100px) {
+  .chero { min-height: 0; }
+  .chero__grid {
+    grid-template-columns: 1fr;
+    row-gap: 56px;
+    padding: 190px 0 80px;
+    justify-items: start;
+  }
+  .chero__intro { padding-top: 0; }
+  .chero__title { font-size: 46px; }
+  /* the frame's per-row nudges are a desktop-only quirk; below this the rows
+     share one column */
+  .chero__contact > :last-child,
+  .chero__contact--address > :last-child,
+  .chero__contact--phone > :last-child { top: 0; left: 0; }
+  .chero__contact--phone .chero__contact-icon { margin-left: 0; }
+  .chero__contacts { margin-top: 44px; gap: 24px; }
+  .chero__contact { font-size: 24px; grid-template-columns: 60px 1fr; }
+  .chero__glow--bottom {
+    background: radial-gradient(70% 45% at 0 100%,
+      rgba(0, 0, 234, 1) 0%, rgba(0, 0, 234, 0) 100%);
+  }
+  .chero__glow--top {
+    background: radial-gradient(60% 30% at 100% 0,
+      rgba(0, 0, 234, .60) 0%, rgba(0, 0, 234, 0) 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .chero__grid { padding: 150px 0 56px; }
+  .chero__title { font-size: 34px; }
+  .chero__lead { font-size: 16px; }
+  .chero__lead br { display: none; }
+  .chero__contact { font-size: 18px; grid-template-columns: 48px 1fr; }
+  .chero__contact-icon { width: 24px; height: auto; }
+}

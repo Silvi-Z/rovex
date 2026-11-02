@@ -1,0 +1,35 @@
+/* Partners — Figma frame y 3519 → 3842 */
+.partners { background: var(--c-white); color: var(--c-black); padding: 61px 0 73px; }
+
+.partners__heading {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.22;
+  text-transform: uppercase;
+}
+
+.partners__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 32px;           /* heading box ends 3619 → cells 3651 */
+}
+.partners__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 118px;
+  border: 1px solid var(--c-cell-border);
+  margin-right: -1px;          /* collapse the shared vertical borders */
+}
+.partners__cell:last-child { margin-right: 0; }
+.partners__cell img { height: auto; max-width: 100%; }
+
+@media (max-width: 1100px) {
+  .partners__grid { grid-template-columns: repeat(4, 1fr); }
+  .partners__cell { margin-bottom: -1px; padding: 10px; }
+}
+
+@media (max-width: 640px) {
+  .partners__heading { font-size: 24px; }
+  .partners__grid { grid-template-columns: repeat(2, 1fr); }
+}

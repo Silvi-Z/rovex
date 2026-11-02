@@ -1,0 +1,45 @@
+/* Montserrat arm — the six cuts the frame uses, converted to woff2.
+   ExtraLight 200 · Light 300 · Regular 400 · Medium 500 · SemiBold 600 · Bold 700 */
+
+@font-face {
+  font-family: "Montserrat arm";
+  src: url("/assets/fonts/Montserratarm-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat arm";
+  src: url("/assets/fonts/Montserratarm-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat arm";
+  src: url("/assets/fonts/Montserratarm-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat arm";
+  src: url("/assets/fonts/Montserratarm-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat arm";
+  src: url("/assets/fonts/Montserratarm-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat arm";
+  src: url("/assets/fonts/Montserratarm-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

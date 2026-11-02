@@ -1,0 +1,108 @@
+/* Enquiry card — Figma frame 55:12, x 841–1360, y 254–940 */
+.cform {
+  width: 519px;
+  padding: 39px 37px 55px;
+  border-radius: 40px;
+  background: var(--c-white);
+  color: var(--c-black);
+}
+
+.cform__title {
+  font-size: 32px;
+  /* Medium, not SemiBold: the frame's card title measures ~13% less ink. */
+  font-weight: 500;
+  line-height: 1.22;
+}
+
+/* 83px row pitch: 20px label + 7px + 40px input + 16px */
+.cform__row { margin-top: 16px; }
+.cform__title + .cform__row { margin-top: 11px; }
+
+.cform__label {
+  display: block;
+  /* the frame indents the label 4px from the field box and sets it 3px lower
+     than a flush label/field pair would sit — padding here instead of a margin
+     keeps the 83px row pitch unchanged */
+  padding: 3px 0 0 3px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #3d3c3c;
+}
+
+.cform__input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--c-cell-border);
+  border-radius: 8px;
+  background: var(--c-white);
+  color: var(--c-black);
+  font: inherit;
+  font-size: 16px;
+}
+.cform__input:focus-visible {
+  outline: none;
+  border-color: var(--c-blue);
+}
+
+/* ------------------------------ file row -------------------------------- */
+.cform__file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 89px;
+  border: 1px solid var(--c-cell-border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* 3px of the icon's trailing gap moved to its leading side: the frame sets
+   ~16px between the icon box and the label while keeping the row's overall
+   width, so the margins have to cancel out. */
+.cform__file-icon { width: 26px; height: 26px; flex: none; margin: 0 5px 0 3px; }
+.cform__file-action { font-size: 12px; color: var(--c-blue); }
+/* the frame drops the hint 4px below the action label rather than centring
+   the two together */
+/* left at the inherited 400: at 12px the measurement splits evenly between 300
+   and 400, which is inside the antialiasing margin at that size */
+.cform__file-hint   { position: relative; top: 4px; font-size: 12px; color: #676767; }
+.cform__file-input {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.cform__file:focus-within { border-color: var(--c-blue); }
+
+/* ------------------------------- submit --------------------------------- */
+.cform__submit {
+  display: block;
+  width: 353px;
+  height: 55px;
+  margin: 40px auto 0;        /* upload box ends 790 → button 831 */
+  border-radius: 6px;
+  background: var(--c-blue);
+  color: var(--c-white);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.22;
+  transition: background-color .2s ease;
+}
+.cform__submit:hover { background: #1a1aff; }
+
+@media (max-width: 1100px) {
+  .cform { width: 100%; max-width: 519px; }
+}
+
+@media (max-width: 640px) {
+  .cform { padding: 32px 20px 36px; border-radius: 24px; }
+  .cform__title { font-size: 24px; }
+  .cform__submit { width: 100%; }
+  .cform__file { gap: 8px; flex-wrap: wrap; height: auto; padding: 20px 12px; text-align: center; }
+}

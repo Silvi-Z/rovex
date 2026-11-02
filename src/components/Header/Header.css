@@ -1,0 +1,76 @@
+/* Header — Figma group 58:283, frame y 26 → 79.
+   The three parts sit at different heights in the frame, so the row is
+   top-aligned and each child carries its own offset from y 26. */
+.nav {
+  position: absolute;
+  top: 26px; left: 0; right: 0;
+  z-index: 10;
+}
+.nav__inner {
+  display: flex;
+  align-items: flex-start;
+  height: 53px;
+}
+
+.nav__logo { margin-top: 9px; }          /* logo box y 35 */
+.nav__logo img { width: 170px; height: 44px; }
+
+.nav__links {
+  display: flex;
+  align-items: flex-start;
+  gap: 49px;
+  margin-top: 17px;           /* label box y 43 */
+  margin-left: 60px;          /* logo right edge 250 → first link 310 */
+  font-size: 14px;
+  /* Light, not Regular. Measured off the frame's render: the nav labels and the
+     language switcher carry ~20% less ink than a 400 cut of the same size at
+     the same position. */
+  font-weight: 300;
+}
+.nav__link { position: relative; }
+.nav__link.is-active::after {  /* 3:13 — underline, y 65 → 67 */
+  content: "";
+  position: absolute;
+  /* The frame's rule starts at the label's left edge and overhangs it on the
+     right by 4.3px (label 91.7 → rule 96). Expressed as an offset instead of
+     the frame's hard-coded 96px so the indicator fits any nav item. */
+  left: 0; right: -4.3px;
+  top: 22px;                   /* label top 43 → rule at 65 */
+  height: 2px;
+  background: var(--c-blue);
+}
+.nav__link:hover { color: var(--c-text-dim); }
+
+.nav__lang { white-space: nowrap; }   /* offset comes from .nav__links */
+.nav__lang-sep { color: var(--c-lang-muted); }
+
+.nav__cta {
+  /* The frame puts the button's right edge on the 1360 content edge. Anchoring
+     it there rather than at a fixed 22px gap keeps it exact as label widths
+     shift with the font. */
+  margin-left: auto;
+  height: 47px;
+  width: 250px;
+  font-size: 14px;
+  flex: none;
+}
+
+.nav__burger { display: none; }
+
+/* Measured: the desktop nav wraps at 1350px and below, so it hands over to the
+   burger there — earlier than the rest of the page reflows (still at 1100).
+   1366px laptops keep the full nav. */
+@media (max-width: 1350px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    margin-top: 15px;         /* centred against the logo (centre y 57) */
+    margin-left: auto;
+  }
+  .nav__burger span { display: block; height: 2px; background: var(--c-white); }
+}

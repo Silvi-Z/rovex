@@ -1,0 +1,26 @@
+.tile__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 411 / 294;
+  object-fit: cover;
+  display: block;
+}
+
+.tile__cap { padding-top: 20px; }   /* image bottom 1051 → title ink 1076 */
+
+.tile__title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.22;
+}
+.tile__meta {
+  margin-top: 7px;
+  font-size: 16px;
+  line-height: 1.22;
+  white-space: pre-line;            /* the frame breaks one meta over two lines */
+}
+
+@media (max-width: 640px) {
+  .tile__title { font-size: 20px; }
+  .tile__meta  { font-size: 14px; }
+}
