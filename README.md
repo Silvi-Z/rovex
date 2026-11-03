@@ -26,7 +26,7 @@ the footer menu.
 | `/` | `pages/HomePage.jsx` | Գլխավոր էջ | The approved landing page |
 | `/products-services` | `pages/ProductsServicesPage.jsx` | Ապրանքներ և ծառայությաւոններ | Blank |
 | `/projects` | `pages/ProjectsPage.jsx` | Նախագծեր | Frame `66:435` — built, verified |
-| `/about` | `pages/AboutPage.jsx` | Մեր մասին | Blank |
+| `/about` | `pages/AboutPage.jsx` | Մեր մասին | Frame `106:45` — built, verified |
 | `/contact` | `pages/ContactPage.jsx` | Կապ | Blank |
 | `*` | `pages/NotFoundPage.jsx` | — | Blank |
 
@@ -282,6 +282,29 @@ frame exports:
   x 80–90, y 3392–3402 — identical to the frame.
 
 ---
+
+## About page (frame `106:45`)
+
+Sections in frame order: `AboutHero` (0–605), `FullCycle` intro + 7 features
+(605–1856), `AboutGallery` (1856–2504), the shared `Partners` strip, `Clients`
+4 × 3 logo grid (to 3567), then the shared `CtaBanner` and `Footer`. Content
+lives in `src/data/aboutPage.js`. Images were exported via the Figma MCP and
+pre-cropped to exactly the region each node shows (2×).
+
+The feature rows are placed by hand in the frame, so each item carries its
+own desktop offsets (`metrics` in the data file); below 1101px they share one
+rhythm. `Partners` gained an optional `className` (`partners--flush-bottom`)
+so the clients block can follow it in the same white band; the home page is
+unaffected.
+
+Verified at 1440: document 4386px tall, matching the frame; every measured box
+(hero copy, intro, 7 rules / bullets / titles / bodies, 5 photos, 7 + 12 cells,
+12 logos, CTA, footer) lands on its frame coordinate. No overflow from 1680 to
+390, console clean.
+
+Deliberate omissions: a stray "վ" glyph (node `144:475`) beside
+"Սեփական արտադրություն", an off-canvas Poppins text layer (`106:59`), and a
+hero photo (`106:56`) fully covered by the COAF photo above it.
 
 ## Open issues
 

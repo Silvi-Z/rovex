@@ -1,0 +1,71 @@
+/* About hero — Figma frame 106:45, y 0 → 605 */
+.ahero {
+  position: relative;
+  height: 605px;
+  overflow: hidden;
+  background: var(--c-black);
+}
+
+/* 108:258 "COAF 3" — 1442 × 960 at y -248, clipped by the 1440 × 605 mask.
+   `cover` at 1440 × 605 scales the 1537 × 1023 photo to 1440 × 958; 70.17%
+   puts its top at -248, the frame's crop. */
+.ahero__media {
+  position: absolute;
+  inset: 0;
+  background: url("/assets/about-hero.jpg") 50% 70.17% / cover no-repeat;
+}
+
+/* 106:57 — left-to-right darkening */
+.ahero__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #000 1.956%, rgba(0, 0, 0, 0) 49.122%);
+}
+
+/* 106:58 — blue quarter-ellipse glow, 726.5 × 628 at x 803, y -23.
+   Anchored to the right edge (1440 - 803 - 726.5 = -89.5) so it stays on the
+   photo's right side at every width; identical to the frame at 1440. */
+.ahero__glow {
+  position: absolute;
+  top: -23px;
+  right: -89.5px;
+  width: 726.5px;
+  height: 628px;
+  max-width: none;
+  pointer-events: none;
+}
+
+.ahero__content {
+  position: relative;
+  z-index: 1;
+  padding-top: 401px;         /* title box 401 → 479, centre 440 as in Figma */
+}
+
+.ahero__title {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.22;
+  text-transform: uppercase;
+}
+.ahero__sub {
+  margin-top: 11px;           /* sub box 490 → 552, centre 521 */
+  width: 588px;
+  max-width: 100%;
+  font-size: 25.556px;
+  line-height: 1.22;
+}
+
+@media (max-width: 1100px) {
+  .ahero { height: auto; min-height: 460px; }
+  .ahero__content { padding: 260px 0 56px; }
+  .ahero__title { font-size: 48px; }
+  .ahero__sub { font-size: 20px; }
+}
+
+@media (max-width: 640px) {
+  .ahero { min-height: 380px; }
+  .ahero__glow { right: -320px; }
+  .ahero__content { padding: 190px 0 40px; }
+  .ahero__title { font-size: 30px; }
+  .ahero__sub { font-size: 16px; }
+}

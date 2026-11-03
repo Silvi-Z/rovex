@@ -1,0 +1,27 @@
+/* Production photos — Figma frame 106:45, y 1856 → 2504.
+   One 630 × 540 tile + four 302 × 258 tiles, 24px gaps, x 78 → 1360. */
+.agallery { background: var(--c-bg-alt); padding: 47px 0 61px; }
+
+.agallery__grid {
+  display: grid;
+  grid-template-columns: 630fr 302fr 302fr;
+  gap: 24px;
+  margin-left: -2px;
+}
+.agallery__item:first-child { grid-row: span 2; }
+.agallery__item img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 302 / 258;
+  object-fit: cover;
+}
+.agallery__item:first-child img { aspect-ratio: auto; }
+
+@media (max-width: 1439px) { .agallery__grid { margin-left: 0; } }
+
+@media (max-width: 640px) {
+  .agallery { padding: 40px 0; }
+  .agallery__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .agallery__item:first-child { grid-row: auto; grid-column: 1 / -1; }
+  .agallery__item:first-child img { aspect-ratio: 630 / 540; }
+}

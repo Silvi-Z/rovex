@@ -1,5 +1,7 @@
 /* Partners — Figma frame y 3519 → 3842 */
 .partners { background: var(--c-white); color: var(--c-black); padding: 61px 0 73px; }
+/* About page (106:45): the clients block follows in the same white band. */
+.partners--flush-bottom { padding-bottom: 0; }
 
 .partners__heading {
   font-size: 32px;

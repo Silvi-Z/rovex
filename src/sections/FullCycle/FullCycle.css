@@ -1,0 +1,100 @@
+/* "One partner for the whole cycle" — Figma frame 106:45, y 605 → 1856 */
+.cycle {
+  --cycle-rule: #3d3c3c;      /* Line 14 stroke */
+  background: var(--c-bg);
+  padding: 108px 0 106px;     /* intro text at 713; last rule ends 1750 */
+}
+
+/* ------------------------------- intro --------------------------------- */
+.cycle__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 628px;
+  margin-right: -4px;         /* the frame's text box runs to x 1364 */
+  align-items: start;
+}
+.cycle__heading {
+  margin-top: 31px;           /* box 744 → 832, centre 788 */
+  margin-left: -2px;          /* x 78 */
+  width: 545px;
+  max-width: 100%;
+  font-size: 36.081px;
+  font-weight: 600;
+  line-height: 1.22;
+  text-transform: uppercase;
+}
+.cycle__text {
+  font-size: 16px;
+  line-height: 30px;          /* 5 lines → 713 → 863 */
+  color: var(--c-text-muted);
+}
+
+/* ------------------------------ features -------------------------------- */
+.features {
+  display: grid;
+  grid-template-columns: 587px 587px;
+  column-gap: 105px;
+  margin-top: 136px;          /* first rule 999 → 1001 */
+  margin-left: 1px;           /* rules start at x 81 */
+}
+.features__col--closed { border-bottom: 2px solid var(--cycle-rule); }
+
+.feature {
+  position: relative;
+  border-top: 2px solid var(--cycle-rule);
+  padding: 31px 0 32px 63px;  /* title at x 144 / 836 */
+}
+.feature__bullet {
+  position: absolute;
+  left: 0;
+  top: 36px;
+  width: 26px;
+  height: 12px;
+}
+.feature__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.22;
+  white-space: pre-wrap;
+}
+.feature__body {
+  margin-top: 11px;
+  max-width: 524px;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--c-text-muted);
+  white-space: pre-wrap;      /* the frame keeps the double spaces */
+}
+
+/* Desktop: per-row placement from src/data/aboutPage.js */
+@media (min-width: 1101px) {
+  .feature {
+    height: var(--d-row-h);
+    padding-top: var(--d-title-top);
+  }
+  .feature__bullet { top: calc(var(--d-title-top) + var(--d-icon-top)); }
+  .feature__body { margin-top: var(--d-body-gap); }
+}
+
+@media (max-width: 1439px) {
+  .cycle__intro { grid-template-columns: minmax(0, 1fr) minmax(0, 628px); column-gap: 48px; margin-right: 0; }
+  .features { grid-template-columns: 1fr 1fr; column-gap: 64px; margin-left: 0; }
+}
+
+@media (max-width: 1100px) {
+  .cycle { padding: 80px 0 88px; }
+  .cycle__intro { grid-template-columns: minmax(0, 1fr); row-gap: 28px; }
+  .cycle__heading { margin: 0; font-size: 32px; }
+  .features { grid-template-columns: minmax(0, 1fr); margin-top: 64px; }
+  .features__col--closed { border-bottom: 0; }
+  .features__col:last-child { border-bottom: 2px solid var(--cycle-rule); }
+}
+
+@media (max-width: 640px) {
+  .cycle { padding: 56px 0 64px; }
+  .cycle__heading { font-size: 26px; }
+  .cycle__text { font-size: 15px; line-height: 26px; }
+  .features { margin-top: 48px; }
+  .feature { padding: 24px 0 26px 44px; }
+  .feature__bullet { top: 28px; width: 22px; height: auto; }
+  .feature__title, .feature__body { font-size: 16px; }
+}

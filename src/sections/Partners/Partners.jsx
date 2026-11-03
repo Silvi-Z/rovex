@@ -1,9 +1,9 @@
 import { PARTNERS } from '../../data/partners';
 import './Partners.css';
 
-export default function Partners() {
+export default function Partners({ className }) {
   return (
-    <section className="partners">
+    <section className={className ? `partners ${className}` : 'partners'}>
       <div className="container">
         <h2 className="partners__heading">ՄԵՐ ԳՈՐԾԸՆԿԵՐՆԵՐԸ</h2>
         <ul className="partners__grid">
