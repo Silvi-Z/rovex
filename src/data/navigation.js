@@ -1,22 +1,15 @@
 /**
  * Single source of truth for the site's navigation.
  * Consumed by the header, the mobile menu and the footer menu column.
+ * `key` / `footerKey` are translation keys (src/locales/<lang>/translation.json).
  *
- * `footerLabel` exists because the Figma frame spells this one item
- * differently in the header and in the footer. Both spellings are
- * reproduced verbatim rather than normalised.
+ * `footerKey` exists because the Figma frame names this one item
+ * differently in the header and in the footer.
  */
 export const NAV_ITEMS = [
-  { path: '/',                  label: 'Գլխավոր էջ' },
-  {
-    path: '/products-services',
-    label: 'Ծառայությաուններ',
-    footerLabel: 'Ապրանքներ և ծառայություններ',
-  },
-  { path: '/projects',          label: 'Նախագծեր' },
-  { path: '/about',             label: 'Մեր մասին' },
-  { path: '/contact',           label: 'Կապ' },
+  { path: '/',                  key: 'nav.home' },
+  { path: '/products-services', key: 'nav.services', footerKey: 'nav.servicesFull' },
+  { path: '/projects',          key: 'nav.projects' },
+  { path: '/about',             key: 'nav.about' },
+  { path: '/contact',           key: 'nav.contact' },
 ];
-
-export const LANGUAGES = { active: 'ՀԱՅ', inactive: '/EN/РУ' };
-

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { usePageTitle } from '../i18n/I18nProvider';
 import AboutHero from '../sections/AboutHero/AboutHero';
 import FullCycle from '../sections/FullCycle/FullCycle';
 import AboutGallery from '../sections/AboutGallery/AboutGallery';
@@ -9,12 +9,7 @@ import Footer from '../components/Footer/Footer';
 
 /** Figma frame 106:45 "About us". */
 export default function AboutPage() {
-  useEffect(() => {
-    document.title = 'Մեր մասին — Rovex';
-    return () => {
-      document.title = 'Rovex';
-    };
-  }, []);
+  usePageTitle('nav.about');
 
   return (
     <>

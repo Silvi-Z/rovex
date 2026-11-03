@@ -1,7 +1,10 @@
-import { ABOUT_INTRO, FEATURE_COLUMNS } from '../../data/aboutPage';
+import { FEATURE_COLUMNS } from '../../data/aboutPage';
+import { useTranslation } from '../../i18n/I18nProvider';
 import './FullCycle.css';
 
-function Feature({ title, body, metrics }) {
+function Feature({ id, metrics }) {
+  const { t } = useTranslation();
+
   // Desktop-only placement; FullCycle.css reads these inside its >1100px query.
   const style = {
     '--d-row-h': metrics.rowH ? `${metrics.rowH}px` : 'auto',
@@ -20,19 +23,21 @@ function Feature({ title, body, metrics }) {
         alt=""
         aria-hidden="true"
       />
-      <h3 className="feature__title">{title}</h3>
-      <p className="feature__body">{body}</p>
+      <h3 className="feature__title">{t(`advantages.${id}.title`)}</h3>
+      <p className="feature__body">{t(`advantages.${id}.body`)}</p>
     </li>
   );
 }
 
 export default function FullCycle() {
+  const { t } = useTranslation();
+
   return (
     <section className="cycle">
       <div className="container">
         <div className="cycle__intro">
-          <h2 className="cycle__heading">ՄԵԿ ԳՈՐԾԸՆԿԵՐ ԱՄԲՈՂՋ ՑԻԿԼԻ ՀԱՄԱՐ</h2>
-          <p className="cycle__text">{ABOUT_INTRO}</p>
+          <h2 className="cycle__heading">{t('about.heading')}</h2>
+          <p className="cycle__text">{t('about.intro')}</p>
         </div>
 
         <div className="features">

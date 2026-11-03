@@ -1,12 +1,15 @@
 /**
- * Project cards. `size` maps to the three card footprints in the frame:
- * xl = 737×526, md = 519×251, sm = 411×251.
+ * Home page project cards. `size` maps to the three card footprints in the
+ * frame: xl = 737×526, md = 519×251, sm = 411×251. Titles are proper names
+ * and stay untranslated; `type` is a key under `projectTypes` in the locale
+ * files, shown after the year.
  */
 export const FEATURED_PROJECT = {
   id: 'abovyan-5',
   size: 'xl',
   title: 'Abovyan 5',
-  meta: '2026 Հյուրանոցային համալիր',
+  year: 2026,
+  type: 'hotel',
   image: '/assets/project-abovyan.png',
   imageSize: { width: 737, height: 526 },
 };
@@ -16,7 +19,8 @@ export const STACKED_PROJECTS = [
     id: 'double-tree',
     size: 'md',
     title: 'Double Tree by Hilton',
-    meta: '2015 Հյուրանոցային համալիր',
+    year: 2015,
+    type: 'hotel',
     image: '/assets/project-doubletree.png',
     imageSize: { width: 519, height: 251 },
   },
@@ -24,7 +28,8 @@ export const STACKED_PROJECTS = [
     id: 'the-alexander',
     size: 'md',
     title: 'The Alexander',
-    meta: '2018 Հյուրանոցային համալիր',
+    year: 2018,
+    type: 'hotel',
     image: '/assets/project-alexander.png',
     imageSize: { width: 519, height: 251 },
   },
@@ -35,7 +40,8 @@ export const SECONDARY_PROJECTS = [
     id: 'renaissance',
     size: 'sm',
     title: 'Renaissance Premium Home',
-    meta: '2026 Բնակելի համալիր',
+    year: 2026,
+    type: 'residential',
     image: '/assets/project-renaissance.png',
     imageSize: { width: 411, height: 251 },
   },
@@ -43,7 +49,8 @@ export const SECONDARY_PROJECTS = [
     id: 'dilijan',
     size: 'sm',
     title: 'Dilijan International School',
-    meta: '2014 Միջազգային կրթական համալիր',
+    year: 2014,
+    type: 'internationalEducation',
     image: '/assets/project-dilijan.png',
     imageSize: { width: 411, height: 251 },
   },
@@ -51,7 +58,8 @@ export const SECONDARY_PROJECTS = [
     id: 'yerevan-mall',
     size: 'sm',
     title: 'Yerevan Mall',
-    meta: '2014 Առևտրաժամանցային համալիր',
+    year: 2014,
+    type: 'shoppingEntertainment',
     image: '/assets/project-yerevan-mall.png',
     imageSize: { width: 411, height: 251 },
   },

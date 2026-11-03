@@ -1,11 +1,14 @@
 import { CLIENTS } from '../../data/aboutPage';
+import { useTranslation } from '../../i18n/I18nProvider';
 import './Clients.css';
 
 export default function Clients() {
+  const { t } = useTranslation();
+
   return (
     <section className="clients">
       <div className="container">
-        <h2 className="clients__heading">ՄԵՐ հաճախորդները</h2>
+        <h2 className="clients__heading">{t('about.clientsHeading')}</h2>
         <ul className="clients__grid">
           {CLIENTS.map(({ id, name, image, width, height, dx, dy }) => (
             <li

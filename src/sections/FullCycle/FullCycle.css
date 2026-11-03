@@ -68,8 +68,12 @@
 /* Desktop: per-row placement from src/data/aboutPage.js */
 @media (min-width: 1101px) {
   .feature {
-    height: var(--d-row-h);
+    /* min-height, not height: the frame's pitch is kept, but longer copy
+       (English, Russian) grows the row instead of spilling over the rule */
+    min-height: var(--d-row-h);
     padding-top: var(--d-title-top);
+    padding-bottom: 10px;     /* the pitch comes from min-height; this only
+                                 keeps grown rows off the next rule */
   }
   .feature__bullet { top: calc(var(--d-title-top) + var(--d-icon-top)); }
   .feature__body { margin-top: var(--d-body-gap); }

@@ -1,53 +1,46 @@
-/** Contact page — Figma frame 55:12. */
+import { MAP } from './company';
 
-export const CONTACT_INTRO = {
-  title: ['քննարկե՞նք ձեր', 'նախագիծը'],
-  lead: [
-    // The frame sets a double space after "Ձեր"; HTML collapses runs of
-    // whitespace, so the second one is a non-breaking space to keep the line
-    // the width the design draws it at.
-    'Մենք Ձեր  նախագծի համար կգտնենք տեխնիկապես ճիշտ,',
-    'տնտեսապես արդյունավետ և երկարաժամկետ լուծում։',
-  ],
-};
+/**
+ * Contact page — Figma frame 55:12. Visible copy lives in the locale files
+ * (`contact.*`, `cta.heading`); this file keeps structure only.
+ */
 
-/** The large contact rows in the left column (not the footer's small ones). */
+/**
+ * The large contact rows in the left column (not the footer's small ones).
+ * Icon sizes are the frame's boxes (59:326–59:328); the images are exported
+ * from those nodes at 2×.
+ */
 export const CONTACT_ROWS = [
   {
     key: 'address',
     icon: '/assets/contact-icon-location.png',
-    iconSize: { width: 32, height: 40 },
-    text: 'Նիկողայոս Ադոնց 4/3',
+    iconSize: { width: 25.3, height: 31.3 },
+    textKey: 'contact.address',
+    href: MAP.link,
+    external: true,
   },
   {
     key: 'phone',
     icon: '/assets/contact-icon-phone.png',
-    iconSize: { width: 39, height: 39 },
+    iconSize: { width: 32, height: 31.8 },
     text: '+374 98553533',
     href: 'tel:+37498553533',
   },
   {
     key: 'email',
     icon: '/assets/contact-icon-mail.png',
-    iconSize: { width: 43, height: 30 },
+    iconSize: { width: 33.3, height: 25 },
     text: 'info@rovex.am',
     href: 'mailto:info@rovex.am',
   },
 ];
 
-export const FORM = {
-  title: 'Ուղարկել հարցում',
-  fields: [
-    { name: 'fullName', label: 'Անուն Ազգանուն',         type: 'text',  autoComplete: 'name' },
-    { name: 'company',  label: 'Ձեր ընկերության անունը',  type: 'text',  autoComplete: 'organization' },
-    { name: 'phone',    label: 'Հեռախոսահամար',           type: 'tel',   autoComplete: 'tel' },
-    { name: 'email',    label: 'Էլ. հասցե',               type: 'email', autoComplete: 'email' },
-  ],
-  file: {
-    label: 'Կցել ֆայլ',
-    action: 'Ընտրել ֆայլեր',
-    hint: 'PDF, JPEG, PNG',
-    accept: '.pdf,.jpeg,.jpg,.png',
-  },
-  submit: 'ՈՒՂԱՐԿԵԼ',
-};
+/** Form fields; labels are `contact.form.<name>`. */
+export const FORM_FIELDS = [
+  { name: 'fullName', type: 'text',  autoComplete: 'name' },
+  { name: 'company',  type: 'text',  autoComplete: 'organization' },
+  { name: 'phone',    type: 'tel',   autoComplete: 'tel' },
+  { name: 'email',    type: 'email', autoComplete: 'email' },
+];
+
+export const FILE_ACCEPT = '.pdf,.jpeg,.jpg,.png';

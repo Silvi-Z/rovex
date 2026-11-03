@@ -1,19 +1,24 @@
+import { MAP } from '../../data/company';
+import { useTranslation } from '../../i18n/I18nProvider';
 import './ContactMap.css';
 
 /**
- * The frame places a flat map image here, full-bleed, not a live embed — so
- * this renders the exported image rather than introducing an iframe and a
- * third-party dependency the design does not ask for.
+ * Live Google Map of the office, in the strip the frame fills with a map
+ * image (55:10): same full-bleed band, same location, same zoom and Google's
+ * default style. Map labels follow the site language.
  */
 export default function ContactMap() {
+  const { t, language } = useTranslation();
+
   return (
     <section className="cmap">
-      <img
-        className="cmap__img"
-        src="/assets/contact-map.png"
-        width="1440"
-        height="351"
-        alt="Նիկողայոս Ադոնց 4/3, Երևան"
+      <iframe
+        className="cmap__frame"
+        src={MAP.embed(language)}
+        title={t('contact.mapTitle')}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        allowFullScreen
       />
     </section>
   );

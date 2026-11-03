@@ -1,15 +1,12 @@
 /**
  * About page — Figma frame 106:45 "About us".
  *
- * Copy is verbatim from the frame, including its double spaces and the
- * leading space in one title.
+ * Copy lives in the locale files (`about.*`, and `advantages.<id>` for the
+ * feature list, shared with the home accordion); this file keeps layout data.
  */
 
-export const ABOUT_INTRO =
-  '«ROVEX»-ը ստանձնում է աշխատանքների ամբողջ ցիկլը՝ ինժեներական նախագծում, ապակու և ալյումինե կոնստրուկցիաների սեփական արտադրություն, ֆասադային ենթահամակարգերի մոնտաժ, երեսպատում, ապակեպատում, երաշխիքային և հետերաշխիքային սպասարկում։';
-
 /**
- * The two feature columns. The frame places every row by hand, so the
+ * The two feature columns (ids from ADVANTAGE_IDS). The frame places every row by hand, so the
  * desktop metrics differ slightly from row to row; they are kept per item
  * so each title, bullet and body lands on its frame coordinate:
  *
@@ -24,46 +21,32 @@ export const FEATURE_COLUMNS = [
   [
     {
       id: 'deadlines',
-      title: 'Ժամկետներն ամրագրված են պայմանագրով',
-      body: 'Մենք  երաշխավորում ենք դրանց պահպանումը, քանի որ  ինքներս ենք կառավարում բոլոր փուլերը՝ գծագրից մինչև  հանձնում։',
       metrics: { rowH: 163, titleTop: 31, iconTop: 5, bodyGap: 11 },
     },
     {
       id: 'engineering',
-      title: 'Ինժեներական հաշվարկ՝ ենթադրությունների\nփոխարեն',
-      body: 'Յուրաքանչյուր լուծում հիմնավորված է հուսալիության և անվտանգության հաշվարկներով և համապատասխանում է գործող շինարարական նորմերին ու ստանդարտներին։',
       metrics: { rowH: 212, titleTop: 32, iconTop: 6, bodyGap: 15 },
     },
     {
       id: 'materials',
-      title: ' Նյութեր առաջատար արտադրողներից',
-      body: 'Համագործակցում ենք ապակու և ալյումինե համակարգերի մի շարք առաջատար միջազգային արտադրողների հետ և պահպանում ենք որակի ու բնապահպանական միջազգային ստանդարտները։',
       metrics: { rowH: 211, titleTop: 30, iconTop: 0, bodyGap: 26 },
     },
     {
       id: 'aftercare',
-      title: 'Հանձնումից հետո էլ մնում ենք ձեր կողքին',
-      body: 'Երաշխիքային և հետերաշխիքային սպասարկում, տեխնիկական աջակցություն օբյեկտի շահագործման ողջ ընթացքում։',
       metrics: { rowH: 163, titleTop: 31, iconTop: 7, bodyGap: 11 },
     },
   ],
   [
     {
       id: 'production',
-      title: 'Սեփական արտադրություն',
-      body: 'Ապակին և ալյումինե կոնստրուկցիաները պատրաստում ենք ժամանակակից ավտոմատացված սարքավորումներով և վերահսկում ենք որակը արտադրության յուրաքանչյուր փուլում։',
       metrics: { rowH: 163, titleTop: 31, iconTop: 5, bodyGap: 10 },
     },
     {
       id: 'savings',
-      title: 'Խնայողություն շահագործման ողջ ժամկետում',
-      body: 'Նյութերն ու համակարգերն ընտրում ենք այնպես, որ օպտիմալացվեն և՛ սկզբնական ներդրումները, և՛ շահագործման ու էներգասպառման հետագա ծախսերը։',
       metrics: { rowH: 212, titleTop: 22, iconTop: 10, bodyGap: 18 },
     },
     {
       id: 'transparency',
-      title: 'Թափանցիկություն յուրաքանչյուր փուլում',
-      body: 'Լուծումները, նյութերը, աշխատանքների ծավալը, արժեքը և ժամկետները նախապես համաձայնեցվում են ձեզ հետ և ամրագրվում պայմանագրով։',
       metrics: { titleTop: 30, iconTop: 0, bodyGap: 4 },
     },
   ],

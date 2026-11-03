@@ -1,20 +1,20 @@
-/* Map strip — Figma frame 55:12, y 1023 → 1373, full-bleed,
+/* Map strip — Figma frame 55:12, node 55:10: y 1023 → 1374, full-bleed,
    followed by 33px of page background before the footer. */
 .cmap { background: var(--c-bg); padding-bottom: 33px; }
 
-.cmap__img {
+.cmap__frame {
   display: block;
   width: 100%;
   height: 351px;
-  object-fit: cover;
-  object-position: center;
+  border: 0;
+  background: #e5e3df;        /* Google's land colour while tiles load */
 }
 
 @media (max-width: 1100px) {
-  .cmap__img { height: 300px; }
+  .cmap__frame { height: 300px; }
 }
 
 @media (max-width: 640px) {
   .cmap { padding-bottom: 24px; }
-  .cmap__img { height: 240px; }
+  .cmap__frame { height: 240px; }
 }

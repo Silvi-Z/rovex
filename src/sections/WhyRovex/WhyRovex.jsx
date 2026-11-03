@@ -1,23 +1,28 @@
 import Accordion from '../../components/Accordion/Accordion';
-import { ADVANTAGES } from '../../data/advantages';
+import { ADVANTAGE_IDS } from '../../data/advantages';
+import { useTranslation } from '../../i18n/I18nProvider';
 import './WhyRovex.css';
 
 export default function WhyRovex() {
+  const { t } = useTranslation();
+
+  const items = ADVANTAGE_IDS.map((id) => ({
+    id,
+    label: t(`advantages.${id}.title`),
+    body: t(`advantages.${id}.body`),
+  }));
+
   return (
     <section className="why">
       <div className="container why__grid">
         <div className="why__left">
-          <h2 className="why__heading">
-            {'Ֆասադը շենքի այցեքարտն է և նրա հուսալի պաշտպանը տարիներ  շարունակ'}
-          </h2>
-          <p className="why__body">
-            {' «ROVEX»-ը ստանձնում է աշխատանքների ամբողջ ցիկլը՝  ինժեներական նախագծում, ապակու և ալյումինե կոնստրուկցիաների  սեփական արտադրություն, ֆասադային ենթահամակարգերի մոնտաժ,  երեսպատում, ապակեպատում, երաշխիքային և հետերաշխիքային  սպասարկում։'}
-          </p>
+          <h2 className="why__heading">{t('home.why.heading')}</h2>
+          <p className="why__body">{t('home.why.body')}</p>
         </div>
 
         <div className="why__right">
-          <h2 className="why__title">ԻՆՉՈՒ ԵՆ ԸՆՏՐՈՒՄ «ROVEX»-ը</h2>
-          <Accordion items={ADVANTAGES} defaultOpenId={ADVANTAGES[0].id} />
+          <h2 className="why__title">{t('whyRovex')}</h2>
+          <Accordion items={items} defaultOpenId={ADVANTAGE_IDS[0]} />
         </div>
       </div>
     </section>

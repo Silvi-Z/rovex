@@ -9,12 +9,15 @@ import './styles/fonts.css';
 import './styles/tokens.css';
 import './styles/base.css';
 
+import { I18nProvider } from './i18n/I18nProvider';
 import App from './App';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <I18nProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </I18nProvider>
   </StrictMode>,
 );

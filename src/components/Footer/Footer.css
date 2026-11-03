@@ -41,6 +41,10 @@
 .footer__ico { justify-self: start; }
 
 .footer__social { display: flex; gap: 1px; margin-top: 10px; }
+/* the link box is exactly the icon, so the whole 22×22 icon is the target */
+.footer__social-link { display: block; line-height: 0; border-radius: 4px; transition: opacity .2s ease; }
+.footer__social-link:hover { opacity: .75; }
+.footer__social-link:focus-visible { outline: 2px solid var(--c-blue); outline-offset: 2px; }
 .footer__social img { width: 22px; height: 22px; }
 
 .footer__bottom {

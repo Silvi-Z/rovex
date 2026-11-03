@@ -17,4 +17,4 @@
   gap: 28px;
 }
 .mobile-menu__link.is-active { color: var(--c-blue); }
-.mobile-menu__lang span { color: var(--c-text-faint); }
+.mobile-menu__lang { justify-content: center; --lang-muted: var(--c-text-faint); }

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import ProjectTile from '../../components/ProjectTile/ProjectTile';
-import { PROJECTS, PROJECT_FILTERS } from '../../data/projectsPage';
+import { PROJECTS, PROJECT_FILTER_IDS } from '../../data/projectsPage';
+import { useTranslation } from '../../i18n/I18nProvider';
 import './ProjectGallery.css';
 
 export default function ProjectGallery() {
   const [active, setActive] = useState('all');
+  const { t } = useTranslation();
 
   const visible =
     active === 'all'
@@ -14,8 +16,8 @@ export default function ProjectGallery() {
   return (
     <section className="gallery">
       <div className="container">
-        <div className="gallery__filters" role="tablist" aria-label="Նախագծերի տեսակներ">
-          {PROJECT_FILTERS.map(({ id, label }) => (
+        <div className="gallery__filters" role="tablist" aria-label={t('projectsPage.filtersAria')}>
+          {PROJECT_FILTER_IDS.map((id) => (
             <button
               key={id}
               type="button"
@@ -24,7 +26,7 @@ export default function ProjectGallery() {
               className={active === id ? 'gallery__filter is-active' : 'gallery__filter'}
               onClick={() => setActive(id)}
             >
-              {label}
+              {t(`projectsPage.filters.${id}`)}
             </button>
           ))}
         </div>

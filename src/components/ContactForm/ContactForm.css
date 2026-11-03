@@ -1,7 +1,8 @@
-/* Enquiry card — Figma frame 55:12, x 841–1360, y 254–940 */
+/* Enquiry card — Figma frame 55:12, node 59:319: x 841–1360, y 254–941.
+   Content column x 878–1324 (446 wide): 37px left, 36px right. */
 .cform {
   width: 519px;
-  padding: 39px 37px 55px;
+  padding: 39px 36px 29px 37px;   /* title 293; button ends 912 → card 941 */
   border-radius: 40px;
   background: var(--c-white);
   color: var(--c-black);
@@ -14,20 +15,18 @@
   line-height: 1.22;
 }
 
-/* 83px row pitch: 20px label + 7px + 40px input + 16px */
-.cform__row { margin-top: 16px; }
-.cform__title + .cform__row { margin-top: 11px; }
+/* Rows, from the frame: label box 17.066px (y 377), 6px, 40px field (y 400),
+   20px to the next label — the 83px pitch of fields at 400/483/566/649/732. */
+.cform__row { margin-top: 20px; }
+.cform__title + .cform__row { margin-top: 45px; }   /* title box ends 332 → label 377 */
 
 .cform__label {
   display: block;
-  /* the frame indents the label 4px from the field box and sets it 3px lower
-     than a flush label/field pair would sit — padding here instead of a margin
-     keeps the 83px row pitch unchanged */
-  padding: 3px 0 0 3px;
-  margin-bottom: 4px;
+  padding-left: 3px;          /* labels at x 881, fields at 878 */
+  margin-bottom: 6px;
   font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 17.066px;
   color: #3d3c3c;
 }
 
@@ -37,7 +36,7 @@
   height: 40px;
   padding: 0 14px;
   border: 1px solid var(--c-cell-border);
-  border-radius: 8px;
+  border-radius: 6px;         /* Rectangles 34–37: r 6 */
   background: var(--c-white);
   color: var(--c-black);
   font: inherit;
@@ -56,7 +55,7 @@
   gap: 10px;
   height: 89px;
   border: 1px solid var(--c-cell-border);
-  border-radius: 8px;
+  border-radius: 6px;         /* Rectangle 38: r 6 */
   cursor: pointer;
 }
 /* 3px of the icon's trailing gap moved to its leading side: the frame sets
@@ -81,17 +80,21 @@
 .cform__file:focus-within { border-color: var(--c-blue); }
 
 /* ------------------------------- submit --------------------------------- */
+/* 59:384 / 59:385 — 446 × 55 at x 878 y 857 (the full content width),
+   #0000ea, r 6; label Montserrat arm Bold 24px / 29.256px, white, centred. */
 .cform__submit {
-  display: block;
-  width: 353px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   height: 55px;
-  margin: 40px auto 0;        /* upload box ends 790 → button 831 */
+  margin-top: 36px;           /* upload box ends 821 → button 857 */
   border-radius: 6px;
   background: var(--c-blue);
   color: var(--c-white);
   font-size: 24px;
   font-weight: 700;
-  line-height: 1.22;
+  line-height: 29.256px;
   transition: background-color .2s ease;
 }
 .cform__submit:hover { background: #1a1aff; }
@@ -101,8 +104,9 @@
 }
 
 @media (max-width: 640px) {
-  .cform { padding: 32px 20px 36px; border-radius: 24px; }
+  .cform { padding: 32px 20px 28px; border-radius: 24px; }
   .cform__title { font-size: 24px; }
-  .cform__submit { width: 100%; }
+  .cform__title + .cform__row { margin-top: 28px; }
+  .cform__submit { font-size: 20px; }
   .cform__file { gap: 8px; flex-wrap: wrap; height: auto; padding: 20px 12px; text-align: center; }
 }

@@ -42,39 +42,39 @@
   line-height: 1.7;
 }
 
+/* Contact rows — Figma 59:323–59:328. Text: Montserrat arm Light 21.258px,
+   line-height 35.431px, #c5c5c5, at x 127.8; rows at y 551 / 600.6 / 650.2
+   (49.6 pitch). Icons at x 80: 25.3×31.3 (y 551), 32×31.8 (604.1),
+   33.3×25 (655.5). */
 .chero__contacts {
-  margin-top: 65px;           /* first icon lands on the frame's 553 */
+  margin-top: 64px;           /* lead box ends 487 → first row 551 */
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 14.169px;              /* 49.6 pitch − 35.431 row */
 }
-/* the frame spaces the third row ~5px tighter than the first two */
-.chero__contact:last-child { margin-top: -5px; }
 
 .chero__contact {
   display: grid;
-  grid-template-columns: 72px 1fr;   /* icon column; text starts at x 152 */
-  align-items: center;
-  font-size: 28px;
-  /* Light, not Regular: the frame's render draws these three lines with ~27%
-     less ink and a 1.4x thinner stem than a 400 cut. (200 undershoots by the
-     same margin, so the frame's own value sits between the two cuts and 300 is
-     the closest one installed.) */
+  grid-template-columns: 47.8px 1fr;  /* icon at x 80, text at x 127.8 */
+  align-items: start;
+  font-size: 21.258px;
   font-weight: 300;
-  line-height: 1.22;
+  line-height: 35.431px;
   color: var(--c-text-dim);
 }
-.chero__contact-icon { justify-self: start; }
 .chero__contact a:hover { color: var(--c-white); }
 
-/* The frame does not put the three rows on one text column: the phone number
-   hangs ~7px to the left of the address and the mail line, and the first two
-   rows sit a couple of pixels lower than a shared baseline would place them.
-   These offsets reproduce that rather than regularising it. */
-.chero__contact > :last-child { position: relative; }
-.chero__contact--address > :last-child { top: 2px; }
-.chero__contact--phone   > :last-child { top: -3px; left: -8px; }
-.chero__contact--phone .chero__contact-icon { margin-left: 3px; }
+/* Icon tops relative to their row, from the frame. */
+.chero__contact-icon { justify-self: start; }
+.chero__contact--phone .chero__contact-icon { margin-top: 3.5px; }
+.chero__contact--email .chero__contact-icon { margin-top: 5.3px; }
+
+/* The frame's address and mail strings start with a space (" Նիկողայոս…",
+   " info@rovex.am"), the phone number does not — so those two lines start
+   one space-width right of the phone. A leading space would collapse in
+   HTML, so it is a no-break space here. */
+.chero__contact--address > :last-child::before,
+.chero__contact--email > :last-child::before { content: "\00a0"; }
 
 @media (max-width: 1100px) {
   .chero { min-height: 0; }
@@ -86,14 +86,7 @@
   }
   .chero__intro { padding-top: 0; }
   .chero__title { font-size: 46px; }
-  /* the frame's per-row nudges are a desktop-only quirk; below this the rows
-     share one column */
-  .chero__contact > :last-child,
-  .chero__contact--address > :last-child,
-  .chero__contact--phone > :last-child { top: 0; left: 0; }
-  .chero__contact--phone .chero__contact-icon { margin-left: 0; }
-  .chero__contacts { margin-top: 44px; gap: 24px; }
-  .chero__contact { font-size: 24px; grid-template-columns: 60px 1fr; }
+  .chero__contacts { margin-top: 44px; }
   .chero__glow--bottom {
     background: radial-gradient(70% 45% at 0 100%,
       rgba(0, 0, 234, 1) 0%, rgba(0, 0, 234, 0) 100%);
@@ -109,6 +102,8 @@
   .chero__title { font-size: 34px; }
   .chero__lead { font-size: 16px; }
   .chero__lead br { display: none; }
-  .chero__contact { font-size: 18px; grid-template-columns: 48px 1fr; }
-  .chero__contact-icon { width: 24px; height: auto; }
+  .chero__contact { font-size: 18px; line-height: 30px; grid-template-columns: 44px 1fr; }
+  .chero__contact-icon { transform: scale(.85); transform-origin: left top; }
+  .chero__contact--phone .chero__contact-icon { margin-top: 2px; }
+  .chero__contact--email .chero__contact-icon { margin-top: 5px; }
 }

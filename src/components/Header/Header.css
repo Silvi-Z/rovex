@@ -1,11 +1,25 @@
-/* Header — Figma group 58:283, frame y 26 → 79.
+/* Header — Figma group 78:16 (Contact) / 106:60 (About), frame y 26 → 79.
    The three parts sit at different heights in the frame, so the row is
-   top-aligned and each child carries its own offset from y 26. */
+   top-aligned and each child carries its own offset from y 26.
 
+   Sticky: fixed to the viewport. It already overlaid the page (absolute), so
+   no content moves; at the top of the page it is transparent exactly as in
+   the frame, and once the page scrolls it gains the page background so it
+   never sits on top of content unreadably. The 26px above the row is
+   mirrored below it, so the scrolled bar is 105px with the row centred. */
 .nav {
-  position: absolute;
-  top: 26px; left: 0; right: 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 10;
+  padding-block: 26px;
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+.nav.is-scrolled {
+  background: rgba(11, 11, 15, .94);     /* --c-bg */
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .06);
+}
+@supports (backdrop-filter: blur(1px)) {
+  .nav.is-scrolled { background: rgba(11, 11, 15, .82); backdrop-filter: blur(12px); }
 }
 .nav__inner {
   display: flex;
@@ -16,13 +30,29 @@
 .nav__logo { margin-top: 9px; }          /* logo box y 35 */
 .nav__logo img { width: 170px; height: 44px; }
 
+/* In the frame every label is a centre-aligned text box at a fixed x — the
+   centres are 356 / 524.5 / 692 / 828.5 / 939, and 1048 for ՀԱՅ/EN/РУ. So
+   each item gets a fixed slot centred on its frame position instead of being
+   chained with gaps: a longer or shorter translation grows around its own
+   centre and nothing else moves when the language changes.
+   Slot edges are the midpoints between neighbouring centres:
+   271.75 | 440.25 | 608.75 | 775.25 | 881.75 | 996.25 | 1099.75
+   → widths 168.5 168.5 166.5 106.5 114.5 103.5 (sum 828). As fr units they
+   are exact at 1440 and scale proportionally down to the 1351px breakpoint. */
 .nav__links {
-  display: flex;
-  align-items: flex-start;
-  gap: 49px;
+  flex: 1 1 0;
+  min-width: 0;
+  display: grid;
+  grid-template-columns:
+    minmax(0, 168.5fr) minmax(0, 168.5fr) minmax(0, 166.5fr)
+    minmax(0, 106.5fr) minmax(0, 114.5fr) minmax(0, 103.5fr);
+  justify-items: center;
+  align-items: start;
   margin-top: 17px;           /* label box y 43 */
-  margin-left: 60px;          /* logo right edge 250 → first link 310 */
+  margin-left: 21.75px;       /* logo right edge 250 → first slot 271.75 */
+  margin-right: 10.25px;      /* last slot ends 1099.75 → CTA 1110 */
   font-size: 14px;
+  white-space: nowrap;
   /* Light, not Regular. Measured off the frame's render: the nav labels and the
      language switcher carry ~20% less ink than a 400 cut of the same size at
      the same position. */
@@ -44,12 +74,9 @@
 .nav__link:hover { color: var(--c-text-dim); }
 
 .nav__lang { white-space: nowrap; }   /* offset comes from .nav__links */
-.nav__lang-sep { color: var(--c-lang-muted); }
 
 .nav__cta {
-  /* The frame puts the button's right edge on the 1360 content edge. Anchoring
-     it there rather than at a fixed 22px gap keeps it exact as label widths
-     shift with the font. */
+  /* The frame puts the button's right edge on the 1360 content edge. */
   margin-left: auto;
 
   height: 47px;

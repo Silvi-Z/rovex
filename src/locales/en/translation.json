@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "siteName": "Rovex"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "servicesFull": "Products and services",
+    "projects": "Projects",
+    "about": "About us",
+    "contact": "Contact",
+    "mainAria": "Main",
+    "menuAria": "Menu",
+    "languageAria": "Language"
+  },
+  "cta": {
+    "discuss": "Let’s discuss your project",
+    "heading": [
+      "Let’s discuss",
+      "your project"
+    ],
+    "button": "Send a request"
+  },
+  "footer": {
+    "tagline": "Finding a technically sound, cost-effective and long-lasting solution for every project.",
+    "menu": "Menu",
+    "contact": "Contact"
+  },
+  "contact": {
+    "address": "4/3 Nikoghayos Adonts St.",
+    "mapAlt": "4/3 Nikoghayos Adonts St., Yerevan",
+    "lead": [
+      "We will find a technically sound, cost-effective",
+      "and long-lasting solution for your project."
+    ],
+    "form": {
+      "title": "Send a request",
+      "fullName": "Full name",
+      "company": "Your company name",
+      "phone": "Phone number",
+      "email": "Email",
+      "fileLabel": "Attach a file",
+      "fileAction": "Choose files",
+      "fileHint": "PDF, JPEG, PNG",
+      "submit": "SEND"
+    },
+    "openMap": "Open in Google Maps",
+    "mapTitle": "Rovex office on the map"
+  },
+  "whyRovex": "Why clients choose ROVEX",
+  "advantages": {
+    "deadlines": {
+      "title": "Deadlines are fixed in the contract",
+      "body": "We guarantee that they are met, because we manage every stage ourselves — from drawings to handover."
+    },
+    "production": {
+      "title": "In-house production",
+      "body": "We manufacture glass and aluminum structures on modern automated equipment and control quality at every stage of production."
+    },
+    "engineering": {
+      "title": "Engineering calculations, not assumptions",
+      "body": "Every solution is backed by reliability and safety calculations and complies with current building codes and standards."
+    },
+    "savings": {
+      "title": "Savings throughout the entire service life",
+      "body": "We select materials and systems to optimize both the initial investment and the subsequent operating and energy costs."
+    },
+    "materials": {
+      "title": "Materials from leading manufacturers",
+      "body": "We work with a number of leading international manufacturers of glass and aluminum systems and adhere to international quality and environmental standards."
+    },
+    "transparency": {
+      "title": "Transparency at every stage",
+      "body": "Solutions, materials, scope of work, cost and deadlines are agreed with you in advance and fixed in the contract."
+    },
+    "aftercare": {
+      "title": "We stay by your side after handover",
+      "body": "Warranty and post-warranty service, plus technical support throughout the entire operation of the building."
+    }
+  },
+  "projectTypes": {
+    "hotel": "Hotel complex",
+    "residential": "Residential complex",
+    "internationalEducation": "International educational complex",
+    "shoppingEntertainment": "Shopping and entertainment complex",
+    "educationCommunity": "Educational and community center",
+    "hotelResidential": "Multifunctional hotel\nand residential complex",
+    "entertainment": "Entertainment complex",
+    "skatingSchool": "Figure skating and ice hockey school"
+  },
+  "partners": {
+    "heading": "Our partners"
+  },
+  "home": {
+    "hero": {
+      "title": [
+        "One partner",
+        "for the entire",
+        "facade"
+      ],
+      "sub": [
+        "We design, manufacture, install and maintain.",
+        "The entire process with one trusted partner."
+      ],
+      "viewProjects": "View projects"
+    },
+    "why": {
+      "heading": "The facade is a building’s calling card and its reliable protection for years to come",
+      "body": "ROVEX takes on the full cycle of work: engineering design, in-house production of glass and aluminum structures, installation of facade subframes, cladding, glazing, and warranty and post-warranty service."
+    },
+    "process": {
+      "heading": "How we work",
+      "steps": {
+        "consulting": {
+          "title": [
+            "Consultation and",
+            "preliminary estimate"
+          ],
+          "body": "We study your needs and the specifics of the building, propose technical solutions and materials, and present a preliminary cost."
+        },
+        "measuring": {
+          "title": [
+            "Survey, design and",
+            "contract"
+          ],
+          "body": "We take precise measurements and prepare the design and technical documentation. The agreed solutions, scope, cost and deadlines are fixed in the contract."
+        },
+        "production": {
+          "title": [
+            "Production and installation"
+          ],
+          "body": "We manufacture the structures in our own workshop. Installation and cladding are carried out by experienced teams strictly according to the design and schedule, under technical supervision."
+        },
+        "handover": {
+          "title": [
+            "Handover and support"
+          ],
+          "body": "We carry out a final quality check of all systems and work, hand over the building and continue to support it throughout its operation."
+        }
+      }
+    },
+    "projects": {
+      "heading": "Projects",
+      "all": "All projects"
+    }
+  },
+  "projectsPage": {
+    "title": "PROJECTS",
+    "tagline": "Rovex: precision in every detail",
+    "filtersAria": "Project types",
+    "filters": {
+      "all": "All projects",
+      "hotel": "Hotels",
+      "residential": "Residential",
+      "education": "Education",
+      "retail": "Retail"
+    }
+  },
+  "about": {
+    "heroSub": "The facade is a building’s calling card and its reliable protection for years to come.",
+    "heading": "One partner for the entire cycle",
+    "intro": "ROVEX takes on the full cycle of work: engineering design, in-house production of glass and aluminum structures, installation of facade subframes, cladding, glazing, and warranty and post-warranty service.",
+    "clientsHeading": "Our clients"
+  },
+  "common": {
+    "newTab": "opens in a new tab"
+  },
+  "social": {
+    "instagram": "Rovex on Instagram",
+    "facebook": "Rovex on Facebook"
+  }
+}

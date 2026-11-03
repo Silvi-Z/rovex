@@ -138,7 +138,7 @@ build). The changes were confined to the header and the footer:
 |---|---|---|
 | logo asset | `logo_2 vers-04` | `logo_2 vers-16` |
 | logo box | 148 × 38 at y 29 | **170 × 44 at y 35** |
-| nav label 2 | Ապրանքներ և ծառայությաւոններ | **Ծառայությաուններ** |
+| nav label 2 | Ապրանքներ և ծառայությաւոններ | **Ծառայություններ** |
 | nav label baseline | y 41 | **y 43** |
 | gap between links | 32px | **49px** |
 | logo → first link | 82px | **60px** |
@@ -306,11 +306,65 @@ Deliberate omissions: a stray "վ" glyph (node `144:475`) beside
 "Սեփական արտադրություն", an off-canvas Poppins text layer (`106:59`), and a
 hero photo (`106:56`) fully covered by the COAF photo above it.
 
+## Header, contact page, map (Figma via REST API)
+
+Values read from the Figma file through the REST API (frame `55:12`).
+
+- **Header slots.** Every nav label in the frame is a centre-aligned box at a
+  fixed x (centres 356 / 524.5 / 692 / 828.5 / 939, switcher 1048). The links
+  are now a 6-slot grid centred on those points instead of a 49px-gap chain,
+  so labels sit exactly on the frame and nothing moves when the language
+  changes — verified identical centres in hy / en / ru.
+- **Sticky header.** `.nav` is `position: fixed` (it was already absolute
+  over the page, so no content moved). Transparent at the top as designed;
+  after scrolling it gets the page background (105px bar, row centred).
+- **Contact card.** Title → first label 45px; labels 17.066px + 6px + 40px
+  fields on an 83px pitch; fields 446 wide, radius 6; «ՈՒՂԱՐԿԵԼ» is 446 × 55
+  at y 857, Bold 24 / 29.256. Card padding 39 / 36 / 29 / 37.
+- **Contact rows.** Light 21.258px / 35.431px, #c5c5c5, text at x 127.8, rows
+  at 551 / 600.6 / 650.2; icons re-exported from nodes 59:326–59:328 at their
+  frame sizes.
+- **Map.** The static image is replaced by a live Google Maps embed of the
+  office (zoom 15, the scale of the frame image; labels follow the site
+  language). The address in the footer and on the contact page links to the
+  same Google Maps search (`MAP` in `src/data/company.js`), in a new tab.
+  `public/assets/contact-map.png` is no longer used.
+- **Socials.** Instagram and Facebook link to the real profiles, new tab,
+  `rel="noopener noreferrer"`, translated accessible names.
+
+## Languages (hy / en / ru)
+
+Armenian is the source and default language; English and Russian are full
+translations. No i18n library: a ~90-line React context covers what the site
+needs and keeps the runtime dependencies at three.
+
+```
+src/i18n/I18nProvider.jsx   provider, useTranslation(), usePageTitle()
+src/i18n/languages.js       language list, default (hy), storage key
+src/i18n/Lines.jsx          renders copy whose line breaks are designed (arrays)
+src/locales/<lang>/translation.json   all user-facing copy, one file per language
+src/components/LanguageSwitcher/      the header's ՀԱՅ/EN/РУ, now interactive
+```
+
+- `t('a.b.c')` looks the key up in the active language, falls back to
+  Armenian, then to the key itself (with a console warning in dev).
+- The choice is stored in `localStorage` (`rovex.lang`) and mirrored to
+  `<html lang>`; switching re-renders in place, no reload, and survives
+  navigation, refresh and new tabs. An unknown stored value falls back to hy.
+- Data files (`src/data/`) hold structure only (ids, images, layout metrics);
+  text is referenced by key. Project titles, partner/client names, phone,
+  email and the English motto are proper names and are not translated.
+- Montserrat arm has no Cyrillic, so Montserrat's Cyrillic subset (OFL) is
+  self-hosted under the same family via `unicode-range`, declared per weight —
+  a single weight-range face pulled Armenian text onto the wrong cut.
+
+To add a string: add the key to all three locale files, then use `t('key')`.
+
 ## Open issues
 
 ### 1. The Projects frame marks the wrong nav item active
 
-Frame `66:435` draws the header's blue underline under **Ծառայությաուններ**
+Frame `66:435` draws the header's blue underline under **Ծառայություններ**
 (Services), not under Նախագծեր, even though the page is the projects listing.
 That reads as the header component not having been switched to the Projects
 state rather than an intentional design — the home frame underlines the item

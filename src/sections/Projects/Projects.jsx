@@ -5,18 +5,21 @@ import {
   STACKED_PROJECTS,
   SECONDARY_PROJECTS,
 } from '../../data/projects';
+import { useTranslation } from '../../i18n/I18nProvider';
 import './Projects.css';
 
 export default function Projects() {
+  const { t } = useTranslation();
+
   return (
     <section className="projects">
       <div className="container">
         <div className="projects__head">
           <div>
-            <h2 className="projects__heading">Նախագծեր</h2>
-            <p className="projects__sub">Rovex՝ ճշտգրտություն ամեն դետալում</p>
+            <h2 className="projects__heading">{t('home.projects.heading')}</h2>
+            <p className="projects__sub">{t('projectsPage.tagline')}</p>
           </div>
-          <Link className="projects__all" to="/projects">Բոլոր նախագծերը</Link>
+          <Link className="projects__all" to="/projects">{t('home.projects.all')}</Link>
         </div>
 
         <div className="projects__rowA">

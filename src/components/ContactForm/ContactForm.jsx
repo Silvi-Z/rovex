@@ -1,5 +1,6 @@
 import { useId, useState } from 'react';
-import { FORM } from '../../data/contactPage';
+import { FILE_ACCEPT, FORM_FIELDS } from '../../data/contactPage';
+import { useTranslation } from '../../i18n/I18nProvider';
 import './ContactForm.css';
 
 /**
@@ -12,14 +13,17 @@ import './ContactForm.css';
 export default function ContactForm() {
   const id = useId();
   const [fileName, setFileName] = useState('');
+  const { t } = useTranslation();
 
   return (
     <form className="cform" onSubmit={(e) => e.preventDefault()} noValidate>
-      <h2 className="cform__title">{FORM.title}</h2>
+      <h2 className="cform__title">{t('contact.form.title')}</h2>
 
-      {FORM.fields.map(({ name, label, type, autoComplete }) => (
+      {FORM_FIELDS.map(({ name, type, autoComplete }) => (
         <div className="cform__row" key={name}>
-          <label className="cform__label" htmlFor={`${id}-${name}`}>{label}</label>
+          <label className="cform__label" htmlFor={`${id}-${name}`}>
+            {t(`contact.form.${name}`)}
+          </label>
           <input
             className="cform__input"
             id={`${id}-${name}`}
@@ -31,24 +35,24 @@ export default function ContactForm() {
       ))}
 
       <div className="cform__row">
-        <span className="cform__label" id={`${id}-file-label`}>{FORM.file.label}</span>
+        <span className="cform__label" id={`${id}-file-label`}>{t('contact.form.fileLabel')}</span>
         <label className="cform__file" htmlFor={`${id}-file`}>
           <img className="cform__file-icon" src="/assets/icon-upload.png" width="26" height="26" alt="" />
-          <span className="cform__file-action">{FORM.file.action}</span>
-          <span className="cform__file-hint">{fileName || FORM.file.hint}</span>
+          <span className="cform__file-action">{t('contact.form.fileAction')}</span>
+          <span className="cform__file-hint">{fileName || t('contact.form.fileHint')}</span>
           <input
             className="cform__file-input"
             id={`${id}-file`}
             name="attachment"
             type="file"
-            accept={FORM.file.accept}
+            accept={FILE_ACCEPT}
             aria-labelledby={`${id}-file-label`}
             onChange={(e) => setFileName(e.target.files?.[0]?.name ?? '')}
           />
         </label>
       </div>
 
-      <button className="cform__submit" type="submit">{FORM.submit}</button>
+      <button className="cform__submit" type="submit">{t('contact.form.submit')}</button>
     </form>
   );
 }
