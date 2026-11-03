@@ -156,6 +156,51 @@
       "retail": "Retail"
     }
   },
+  "servicesPage": {
+    "title": "Our services",
+    "tagline": "From design to the finished result",
+    "cards": {
+      "facade": {
+        "title": "Facade systems",
+        "body": "Engineering design and installation of facade substructures."
+      },
+      "glazing": {
+        "title": "Glazing",
+        "body": "Manufacturing and installation of translucent and aluminum structures."
+      },
+      "cladding": {
+        "title": "Cladding",
+        "body": "Local and imported materials: stone, porcelain stoneware tiles, fiber cement panels and more."
+      },
+      "maintenance": {
+        "title": "Maintenance",
+        "body": "Technical inspection of facades and glazing systems, preventive work, repairs and emergency service."
+      }
+    },
+    "production": {
+      "heading": "In-house production",
+      "body": "We manufacture glass and aluminum structures on modern automated equipment and control quality at every stage of production.",
+      "steps": {
+        "cutting": "Cutting",
+        "edging": "Edge processing",
+        "tempering": "Tempering and bending",
+        "washing": "Washing and insulated glass units",
+        "lamination": "Multilayer lamination"
+      }
+    },
+    "maintenance": {
+      "heading": "Maintenance",
+      "sub": "A facade that lasts longer",
+      "body": "Regular maintenance prevents defects before they turn into costly repairs and extends the service life of facade and glazing systems. After inspecting the site, we draw up a list of works and a schedule, and on completion we provide a certificate of completed works and a warranty.",
+      "items": {
+        "inspection": "General technical inspection",
+        "fastenings": "Inspection of fastenings and sealing",
+        "hardware": "Servicing of hardware mechanisms",
+        "drainage": "Cleaning of drainage channels",
+        "emergency": "Emergency technical service when needed"
+      }
+    }
+  },
   "about": {
     "heroSub": "The facade is a building’s calling card and its reliable protection for years to come.",
     "heading": "One partner for the entire cycle",

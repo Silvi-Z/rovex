@@ -1,0 +1,64 @@
+/* Services hero — Figma frame 143:325, y 0 → 605 */
+.shero {
+  position: relative;
+  height: 605px;
+  overflow: hidden;           /* the frame clips the blue glow at the hero's edge */
+  background: var(--c-black);
+}
+
+/* Three layers, bottom to top, as in the frame:
+   143:342 — the photo (mask group, exported at 2×)
+   143:347 — black → transparent, stops at 13.9% / 70.2% of a handle that
+             starts 1.46% left of the frame: 12.7% / 69.8% in CSS terms
+   143:348 — blue radial glow, ellipse 1453 × 1256 centred at (1529.5, 605),
+             gradient radius 37.7% of each axis (548 × 473.6), #0000ea 1 → 0 */
+.shero__media {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(548px 473.6px at calc(100% + 89.5px) 100%,
+      rgba(0, 0, 234, 1) 0%, rgba(0, 0, 234, 0) 100%),
+    linear-gradient(90deg, #000 12.7%, rgba(0, 0, 0, 0) 69.8%),
+    url("/assets/services-hero.jpg") center / cover no-repeat;
+}
+
+.shero__content {
+  position: relative;
+  z-index: 1;
+  padding-top: 401px;         /* 143:388 title box at y 401 */
+}
+
+/* 143:388 — SemiBold 64 / 78.016, uppercase */
+.shero__title {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 78.016px;
+  text-transform: uppercase;
+}
+/* 143:389 — Regular 25.556 / 31.152, box at y 506 (27px below the title box) */
+.shero__sub {
+  margin-top: 27px;
+  font-size: 25.556px;
+  line-height: 31.152px;
+}
+
+@media (max-width: 1100px) {
+  .shero { height: auto; min-height: 460px; }
+  .shero__content { padding: 260px 0 56px; }
+  .shero__title { font-size: 52px; line-height: 1.22; }
+  .shero__sub { margin-top: 16px; font-size: 20px; line-height: 1.22; }
+}
+
+@media (max-width: 640px) {
+  .shero { min-height: 380px; }
+  .shero__content { padding: 190px 0 40px; }
+  /* «ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐԸ» is one 16-letter word: sized to fit a phone line */
+  .shero__title { font-size: min(34px, 7.2vw); overflow-wrap: anywhere; }
+  .shero__sub { font-size: 16px; }
+  .shero__media {
+    background:
+      radial-gradient(70% 45% at 115% 100%, rgba(0, 0, 234, 1) 0%, rgba(0, 0, 234, 0) 100%),
+      linear-gradient(90deg, rgba(0, 0, 0, .85) 0%, rgba(0, 0, 0, .2) 100%),
+      url("/assets/services-hero.jpg") 60% center / cover no-repeat;
+  }
+}

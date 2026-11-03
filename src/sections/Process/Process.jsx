@@ -3,11 +3,12 @@ import { useTranslation } from '../../i18n/I18nProvider';
 import Lines from '../../i18n/Lines';
 import './Process.css';
 
-export default function Process() {
+/** `className` adds a page modifier (the services page uses `process--services`). */
+export default function Process({ className }) {
   const { t } = useTranslation();
 
   return (
-    <section className="process">
+    <section className={className ? `process ${className}` : 'process'}>
       <div className="process__glow" role="presentation" />
       <div className="container">
         <h2 className="process__heading">{t('home.process.heading')}</h2>

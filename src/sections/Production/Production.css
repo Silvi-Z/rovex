@@ -1,0 +1,156 @@
+/* In-house production — Figma frame 143:325, y 1579 → 3417 (#12121b).
+   Content block x 189 → 1252 (1063 wide, centred): photos 454 wide on either
+   side of a 155px spine whose 1px line is at x 720. */
+.prod {
+  position: relative;
+  overflow: hidden;
+  padding: 131px 0 106.5px;   /* heading box at 1710; last photo ends 3310.5 */
+  background: var(--c-bg-alt);
+}
+
+/* 144:473 — three blue glows (ellipses 1373 × 1207.6, radial #0000ea
+   60% → 0 over 37.7% of each axis = 517.7 × 455.4), clipped to the section.
+   Centres, relative to the section: (1256.5, -0.5), (-87.5, 892.8),
+   (1406.5, 1551.8) — the right-hand two are kept on the right edge. */
+.prod__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(517.7px 455.4px at calc(100% - 183.5px) -0.5px,
+      rgba(0, 0, 234, .6) 0%, rgba(0, 0, 234, 0) 100%),
+    radial-gradient(517.7px 455.4px at -87.5px 892.8px,
+      rgba(0, 0, 234, .6) 0%, rgba(0, 0, 234, 0) 100%),
+    radial-gradient(517.7px 455.4px at calc(100% - 33.5px) 1551.8px,
+      rgba(0, 0, 234, .6) 0%, rgba(0, 0, 234, 0) 100%);
+}
+
+.prod__inner {
+  position: relative;
+  width: min(1063px, 100% - var(--gutter) * 2);
+  margin-inline: auto;
+}
+
+/* 143:467 — SemiBold 36.081 / 43.983, uppercase */
+.prod__heading {
+  font-size: 36.081px;
+  font-weight: 600;
+  line-height: 43.983px;
+  text-transform: uppercase;
+}
+/* 143:468 — Regular 18 / 22, #a1a1a1, 628 wide, 15px below the heading box.
+   pre-wrap keeps the copy's double spaces, which set the frame's line breaks. */
+.prod__lead {
+  max-width: 628px;
+  margin-top: 15px;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--c-text-muted);
+  white-space: pre-wrap;
+}
+
+/* ------------------------------- timeline -------------------------------- */
+.prod__timeline {
+  position: relative;
+  margin-top: 71px;           /* lead ends 1835 → spine starts 1906 */
+  padding-top: 22px;          /* spine 1906 → first photo 1928 */
+}
+/* 152:620 — 1px white spine, x 720, 1906 → 3310 */
+.prod__timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 0.5px);
+  width: 1px;
+  background: var(--c-white);
+}
+
+.pstep {
+  display: grid;
+  grid-template-columns: minmax(0, 454fr) 155px minmax(0, 454fr);
+  align-items: start;
+  height: var(--row-h);
+}
+
+.pstep__photo {
+  grid-row: 1;
+  width: 100%;
+  height: var(--photo-h);
+  object-fit: cover;
+}
+.pstep--left  .pstep__photo { grid-column: 1; }
+.pstep--right .pstep__photo { grid-column: 3; }
+
+/* 157:89 etc. — 75px disc in the section colour (it masks the spine),
+   label Work Sans Medium 36.663 / 43.005, centred */
+.pstep__num {
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
+  margin-top: var(--num-top);
+  border-radius: 50%;
+  background: var(--c-bg-alt);
+  font-family: "Work Sans", var(--font);
+  font-size: 36.663px;
+  font-weight: 500;
+  line-height: 43.005px;
+}
+
+/* 147:544 etc. — ExtraLight 27.497 / 33.519, uppercase, max 415.5 wide;
+   the rule (0.76px white in the frame → a 1px line at 76%) hangs below it */
+.pstep__title {
+  grid-row: 1;
+  margin-top: var(--title-top);
+  font-size: 27.497px;
+  font-weight: 200;
+  line-height: 33.519px;
+  text-transform: uppercase;
+}
+.pstep__title::after {
+  content: "";
+  display: block;
+  width: var(--rule-w);          /* up to 460: may run past the 454 column */
+  height: 1px;
+  margin-top: var(--rule-gap);
+  background: rgba(255, 255, 255, .764);
+}
+.pstep--left  .pstep__title { grid-column: 3; }
+.pstep--right .pstep__title { grid-column: 1; }
+/* The text box is 415.5 wide while the rule runs up to 460, so the measure
+   is set on the label, not on the heading. */
+.pstep__label { display: block; max-width: 415.5px; }
+
+@media (max-width: 1100px) {
+  .prod { padding: 80px 0 72px; }
+  .prod__glow {
+    background:
+      radial-gradient(60% 300px at 100% 0, rgba(0, 0, 234, .6) 0%, rgba(0, 0, 234, 0) 100%),
+      radial-gradient(70% 400px at 0 50%, rgba(0, 0, 234, .6) 0%, rgba(0, 0, 234, 0) 100%),
+      radial-gradient(70% 400px at 100% 100%, rgba(0, 0, 234, .6) 0%, rgba(0, 0, 234, 0) 100%);
+  }
+  .prod__heading { font-size: 30px; line-height: 1.22; }
+  .prod__lead { font-size: 16px; }
+  .prod__timeline { margin-top: 40px; padding-top: 0; display: grid; row-gap: 40px; }
+  .prod__timeline::before { display: none; }
+
+  .pstep { grid-template-columns: 56px minmax(0, 1fr); column-gap: 12px; height: auto; }
+  .pstep--left .pstep__photo,
+  .pstep--right .pstep__photo { grid-column: 1 / -1; height: auto; aspect-ratio: 454 / 277; }
+  .pstep__num {
+    grid-row: 2; grid-column: 1; justify-self: start;
+    width: 56px; height: 56px; margin-top: 12px;
+    font-size: 30px; line-height: 1;
+    background: transparent;
+  }
+  .pstep--left .pstep__title,
+  .pstep--right .pstep__title { grid-row: 2; grid-column: 2; margin-top: 23px; font-size: 22px; line-height: 1.22; }
+  .pstep__title::after { width: 100%; max-width: 100%; margin-top: 12px; }
+}

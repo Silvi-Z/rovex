@@ -24,10 +24,10 @@ the footer menu.
 | URL | Page component | Nav label | Content |
 |---|---|---|---|
 | `/` | `pages/HomePage.jsx` | Գլխավոր էջ | The approved landing page |
-| `/products-services` | `pages/ProductsServicesPage.jsx` | Ապրանքներ և ծառայությաւոններ | Blank |
+| `/products-services` | `pages/ProductsServicesPage.jsx` | Ծառայություններ | Frame `143:325` — built, verified |
 | `/projects` | `pages/ProjectsPage.jsx` | Նախագծեր | Frame `66:435` — built, verified |
 | `/about` | `pages/AboutPage.jsx` | Մեր մասին | Frame `106:45` — built, verified |
-| `/contact` | `pages/ContactPage.jsx` | Կապ | Blank |
+| `/contact` | `pages/ContactPage.jsx` | Կապ | Frame `55:12` — built, verified |
 | `*` | `pages/NotFoundPage.jsx` | — | Blank |
 
 Blank pages render the shared header and an empty `<main>` — no invented copy,
@@ -305,6 +305,39 @@ Verified at 1440: document 4386px tall, matching the frame; every measured box
 Deliberate omissions: a stray "վ" glyph (node `144:475`) beside
 "Սեփական արտադրություն", an off-canvas Poppins text layer (`106:59`), and a
 hero photo (`106:56`) fully covered by the COAF photo above it.
+
+## Services page (frame `143:325`)
+
+`/products-services`, in frame order:
+
+| Section | Component | Frame y |
+|---|---|---|
+| Hero | `sections/ServicesHero` | 0 → 605 |
+| 2 × 2 service cards | `sections/ServiceCards` | 605 → 1579 |
+| In-house production timeline | `sections/Production` | 1579 → 3417 |
+| Maintenance + checklist | `sections/Maintenance` | 3417 → 4145 |
+| How we work | `sections/Process` with `process--services` (same copy as home) | 4145 → 4798 |
+| CTA, footer | shared `CtaBanner`, `Footer` | 4798 → 5617 |
+
+- Copy: `servicesPage.*` in the three locale files (Armenian verbatim from the
+  frame). Geometry, images and card colours: `src/data/servicesPage.js`.
+- Images are the frame's own fills, exported at 2× via the REST API:
+  `services-hero.jpg` (photo only — the darkening gradient and blue glow are
+  CSS, rebuilt from the frame's gradient stops), four card illustrations
+  flattened onto their card colour, five production photos.
+- The production glows and the hero glow are CSS radial gradients with the
+  frame's centres, radii and alphas.
+- Step numbers use Work Sans Medium (`fonts/WorkSans-Medium-digits.woff2`,
+  digits only, SIL OFL); the timeline titles use Montserrat arm ExtraLight.
+- At 1440 the page is 5617 tall, like the frame; every section starts on its
+  frame y. Remaining 1–3 px offsets copy small misalignments in the frame
+  itself (two photos 452 wide instead of 454, disc 05 3 px right).
+- The frame has no mobile version; below 1100 the cards stack, the timeline
+  becomes photo → number + title, and the checklist becomes one column.
+- In the frame the header underline sits under Նախագծեր (copied from another
+  frame); the site underlines the current page.
+- Kept as in the frame, possibly typos: «ալյումնե» (ալյումինե?),
+  «ժամետը» (ժամկետը?), «ԱՄՐԱՑՈՒԵՐԻ» (ԱՄՐԱՑՈՒՄՆԵՐԻ?).
 
 ## Header, contact page, map (Figma via REST API)
 

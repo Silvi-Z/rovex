@@ -20,6 +20,15 @@ export default function ContactMap() {
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen
       />
+      <a
+        className="cmap__card"
+        href={MAP.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="/assets/icon-location.png" alt="" width="14" height="18" />
+        <span>{t('contact.address')}</span>
+      </a>
     </section>
   );
 }

@@ -7,17 +7,17 @@ export const COMPANY = {
 
 /**
  * The office location, used by every address link and by the contact-page
- * map so they all open the same place. The query resolves on Google Maps to
- * "4, 3 Nikoghayos Adonts St, Yerevan" — the pin shown in the Figma map.
+ * map so they all open the same place. Exact coordinates of the office pin;
+ * the address is shown in a card over the map (ContactMap).
  */
-const MAP_QUERY = '4/3 Nikoghayos Adonts St, Yerevan, Armenia';
+const MAP_COORDS = '40.212655414549104,44.52510503264529';
 
 export const MAP = {
   /** Opens Google Maps (app on mobile, site on desktop) at the office. */
-  link: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`,
-  /** Keyless embed; zoom 15 matches the scale of the frame's map image. */
+  link: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_COORDS)}`,
+  /** Keyless embed, pin on the exact coordinates. z=18 is close street level (max 21). */
   embed: (language) =>
-    `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&z=15&hl=${language}&output=embed`,
+    `https://maps.google.com/maps?q=${MAP_COORDS}&z=18&hl=${language}&output=embed`,
 };
 
 /**

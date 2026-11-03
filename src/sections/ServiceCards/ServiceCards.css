@@ -1,0 +1,95 @@
+/* Service cards — Figma frame 143:325, y 605 → 1579.
+   Cards 519 × 390 / 389 at x 189 and 732 (24px gutter), y 683 and 1106
+   (33px between the rows): a 1062px block centred in the frame. */
+.scards {
+  padding: 78px 0 84px;       /* hero ends 605 → cards 683; cards end 1495 → 1579 */
+  background: var(--c-bg);
+}
+
+.scards__grid {
+  width: min(1062px, 100% - var(--gutter) * 2);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 33px 24px;
+}
+
+.scard {
+  position: relative;
+  height: var(--card-h);
+  overflow: hidden;
+  background: var(--card-bg);
+  text-align: center;
+}
+
+/* Illustration at the frame's per-card offset (see src/data/servicesPage.js). */
+.scard__art {
+  position: absolute;
+  left: calc(var(--img-x) * 1px);
+  top: calc(var(--img-y) * 1px);
+  width: calc(var(--img-w) * 1px);
+  max-width: none;
+}
+
+/* Title box top per card; everything below it is common to all four:
+   title 24.07 tall → rule 9.53 below (2px, 424.6 wide) → body 16.4 below. */
+.scard__text {
+  position: absolute;
+  top: var(--title-top);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 43.5px;     /* body box 432 wide, centred */
+}
+
+/* 170:86 etc. — SemiBold 19.747 / 24.071, uppercase, white.
+   A flex column so the rule (::after) centres under the title, and the
+   title itself is centred on the card. */
+.scard__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 19.747px;
+  font-weight: 600;
+  line-height: 24.071px;
+  text-transform: uppercase;
+}
+/* 174:90 etc. — 424.6 × 1.97 rule, #0000ea */
+.scard__title::after {
+  content: "";
+  width: 424.6px;
+  height: 2px;
+  margin-top: 9.53px;
+  background: var(--c-blue);
+}
+
+/* 186:156 etc. — Regular 14 / 22, #a1a1a1, centred */
+.scard__body {
+  margin-top: 16.4px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--c-text-muted);
+}
+
+@media (max-width: 1100px) {
+  .scards { padding: 56px 0 64px; }
+  .scards__grid { grid-template-columns: minmax(0, 519px); justify-content: center; }
+}
+
+/* Narrower than a card: the illustration and text flow, scaled to the card. */
+@media (max-width: 600px) {
+  .scards { padding: 40px 0 48px; }
+  .scards__grid { row-gap: 24px; }
+  .scard { height: auto; padding-bottom: 32px; }
+  .scard__art {
+    position: static;
+    width: calc(var(--img-w) / 519 * 100%);
+    height: auto;
+    margin: calc(var(--img-y) / 519 * 100%) 0 0 calc(var(--img-x) / 519 * 100%);
+  }
+  .scard__text { position: static; margin-top: 4px; padding-inline: 20px; }
+  .scard__title { font-size: 18px; line-height: 1.22; }
+  .scard__title::after { width: min(424.6px, 100vw - 80px); }
+}

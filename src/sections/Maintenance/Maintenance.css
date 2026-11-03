@@ -1,0 +1,77 @@
+/* Maintenance — Figma frame 143:325, y 3417 → 4145, on the page colour.
+   Everything is centred on the frame's x 720. */
+.maint {
+  padding: 86px 0 101px;      /* heading box at 3503; last pill ends 4044 */
+  background: var(--c-bg);
+  text-align: center;
+}
+
+/* 145:528 — SemiBold 36.081 / 43.983, uppercase */
+.maint__heading {
+  font-size: 36.081px;
+  font-weight: 600;
+  line-height: 43.983px;
+  text-transform: uppercase;
+}
+/* 145:530 — SemiBold 20 / 24.38, directly under the heading box */
+.maint__sub {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24.38px;
+}
+/* 145:529 — Regular 16 / 22, #a1a1a1, 789 wide, 19px below the subtitle.
+   pre-wrap keeps the copy's double spaces, which set the frame's line breaks. */
+.maint__body {
+  max-width: 789px;
+  margin: 18.62px auto 0;     /* sub box (24.38 line) → body at 3590 */
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--c-text-muted);
+  white-space: pre-wrap;
+}
+
+/* 174:109 — pills 396 × 84 in two columns 38 apart, rows 25 apart, the
+   fifth 439 wide and centred: an 830px block. */
+.maint__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px 38px;
+  width: min(830px, 100%);
+  margin: 42px auto 0;        /* body ends 3700 → pills 3742 */
+}
+
+/* 157:101 etc. — 2px #0000ea stroke inside, r 16; label Medium 16 / 19.504,
+   uppercase, centred both ways */
+.maint__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 396px;
+  min-height: 84px;
+  padding: 10px 20px;
+  border: 2px solid var(--c-blue);
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.504px;
+  text-transform: uppercase;
+}
+.maint__item:last-child { width: 439px; }
+
+@media (max-width: 1100px) {
+  .maint { padding: 72px 0 80px; }
+  .maint__heading { font-size: 30px; line-height: 1.22; }
+}
+
+@media (max-width: 900px) {
+  .maint__list { flex-direction: column; align-items: stretch; gap: 16px; width: min(439px, 100%); }
+  .maint__item, .maint__item:last-child { width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .maint__sub { font-size: 18px; line-height: 1.22; margin-top: 6px; }
+  .maint__body { font-size: 15px; }
+  .maint__body { white-space: normal; }
+  .maint__item { min-height: 72px; font-size: 14px; line-height: 1.3; }
+}

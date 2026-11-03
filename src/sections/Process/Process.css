@@ -6,6 +6,13 @@
   overflow: hidden;
 }
 
+/* Services frame 143:325, y 4145 → 4798: identical from the heading down,
+   but the heading sits 84px from the top (not 97), the band runs 46px longer
+   below the steps, and there is no glow. Declared before the media queries
+   so the smaller-screen paddings still apply. */
+.process--services { padding: 84px 0 155px; }
+.process--services .process__glow { display: none; }
+
 /* 7:110 — blue glow bleeding in from the left edge.
    Rebuilt as a radial gradient; the flattened SVG could not be downloaded. */
 .process__glow {

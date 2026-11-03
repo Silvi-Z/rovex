@@ -58,3 +58,14 @@
 @font-face { font-family: "Montserrat arm"; src: url("/assets/fonts/Montserrat-Cyrillic-Variable.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
 @font-face { font-family: "Montserrat arm"; src: url("/assets/fonts/Montserrat-Cyrillic-Variable.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
 @font-face { font-family: "Montserrat arm"; src: url("/assets/fonts/Montserrat-Cyrillic-Variable.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+
+/* Work Sans Medium — the step numbers (01–05) on the services page.
+   Digits-only subset from Google Fonts (SIL OFL); nothing else uses it. */
+@font-face {
+  font-family: "Work Sans";
+  src: url("/assets/fonts/WorkSans-Medium-digits.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0030-0039;
+}
