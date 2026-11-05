@@ -10,13 +10,23 @@ export default function Partners({ className }) {
       <div className="container">
         <h2 className="partners__heading">{t('partners.heading')}</h2>
         <ul className="partners__grid">
-          {PARTNERS.map(({ id, name, image, width }) => (
-            <li className="partners__cell" key={id}>
-              {/* width comes from the logo's exact box in the frame; the
-                  height follows the image's intrinsic ratio */}
-              <img src={image} alt={name} style={{ width: `${width}px` }} />
-            </li>
-          ))}
+          {PARTNERS.map(({ id, name, image, width, href }) => {
+            /* width comes from the logo's exact box in the frame; the
+               height follows the image's intrinsic ratio */
+            const logo = <img src={image} alt={name} style={{ width: `${width}px` }} />;
+
+            return (
+              <li className="partners__cell" key={id}>
+                {href ? (
+                  <a className="partners__link" href={href} target="_blank" rel="noopener noreferrer">
+                    {logo}
+                  </a>
+                ) : (
+                  logo
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
