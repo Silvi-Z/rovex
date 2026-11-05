@@ -43,7 +43,20 @@
       "fileLabel": "Attach a file",
       "fileAction": "Choose files",
       "fileHint": "PDF, JPEG, PNG",
-      "submit": "SEND"
+      "submit": "SEND",
+      "sending": "SENDING…",
+      "sent": "Thank you! Your request has been sent. We will contact you soon.",
+      "errors": {
+        "generic": "Could not send the request. Please try again or email us at info@rovex.am.",
+        "name_required": "Please enter your name.",
+        "contact_required": "Please enter a phone number or an email address.",
+        "email_invalid": "Please check the email address.",
+        "phone_invalid": "Please check the phone number.",
+        "file_invalid": "Only PDF, JPEG or PNG files can be attached.",
+        "file_too_large": "The file is too large (maximum 10 MB).",
+        "too_long": "One of the fields is too long.",
+        "rate_limited": "Too many requests. Please try again in a few minutes."
+      }
     },
     "openMap": "Open in Google Maps",
     "mapTitle": "Rovex office on the map"

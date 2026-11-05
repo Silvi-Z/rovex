@@ -44,3 +44,6 @@ export const FORM_FIELDS = [
 ];
 
 export const FILE_ACCEPT = '.pdf,.jpeg,.jpg,.png';
+
+/** Attachment size limit; the server (server/contact) enforces the same. */
+export const FILE_MAX_BYTES = 10 * 1024 * 1024;
