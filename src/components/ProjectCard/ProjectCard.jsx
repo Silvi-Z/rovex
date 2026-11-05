@@ -14,7 +14,7 @@ export default function ProjectCard({ project }) {
       <img src={image} width={imageSize.width} height={imageSize.height} alt={title} />
       <figcaption className="card__cap">
         <h3 className="card__title">{title}</h3>
-        <p className="card__meta">{`${year} ${t(`projectTypes.${type}`)}`}</p>
+        <p className="card__meta">{`${t(`projectTypes.${type}`)}`}</p>
       </figcaption>
     </figure>
   );

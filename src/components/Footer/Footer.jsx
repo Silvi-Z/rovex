@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="footer__brand">
           <img
             className="footer__logo"
-            src="/assets/logo-rovex-footer.png"
+            src="/assets/logo-rovex.png"
             width="221"
             height="56"
             alt={COMPANY.name}

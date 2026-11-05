@@ -59,7 +59,7 @@
   font-weight: 300;
 }
 .nav__link { position: relative; }
-.nav__link.is-active::after {  /* 3:13 — underline, y 65 → 67 */
+.nav__link.is-active::after, .lang__btn.is-active::after {  /* 3:13 — underline, y 65 → 67 */
 
   content: "";
   position: absolute;
@@ -74,6 +74,12 @@
 .nav__link:hover { color: var(--c-text-dim); }
 
 .nav__lang { white-space: nowrap; }   /* offset comes from .nav__links */
+
+.nav__lang button, .lang__sep { 
+  color: var(--c-white);
+position: relative; }
+
+.lang__sep { margin: 0 3px; }
 
 .nav__cta {
   /* The frame puts the button's right edge on the 1360 content edge. */

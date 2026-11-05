@@ -224,7 +224,7 @@ src/sections/ProjectsHero/              hero photo + title block
 src/sections/ProjectGallery/            filter tabs + grid
 src/components/ProjectTile/             one tile: image + caption below it
 src/data/projectsPage.js                12 projects + the 5 filters
-public/assets/projects-hero.png         hero photo
+public/assets/projects-hero.jpg         hero photo (node 207:86, overlays are CSS)
 public/assets/proj-*.png                12 project photos
 ```
 
@@ -407,20 +407,12 @@ The implementation underlines **Նախագծեր**, keeping the active-nav behav
 consistent across all six routes. This is the one place the page deliberately
 departs from the frame; say the word and it becomes a one-line override.
 
-### 2. The hero photo carries its overlays
+### 2. The hero photo carries its overlays — resolved
 
-The clean hero photograph was not available, only the frame export, so
-`projects-hero.png` is cut from that export. Its darkening gradient and blue
-right-edge glow are therefore **baked into the image** rather than being CSS
-layers like the home hero's, and the frame's own header and hero copy had to
-be painted out of it (`cv2.inpaint`) so they would not show through behind the
-real markup. The repainted areas sit under the rendered header and headline,
-so they are not visible — but at very wide viewports the baked gradient
-stretches with the photo instead of staying crisp.
-
-Supply the original photograph and this becomes a drop-in swap: replace the
-file and move the gradient and glow into `.phero__media` as CSS layers, the
-way `Hero.css` does it.
+The frame now uses a different photo (node `207:86`, "the Dvin"), exported
+clean at 2× and cropped to the hero box as `projects-hero.jpg`. The two
+darkening gradients (`66:440`, `207:87`) and the blue glow (`66:441`) are CSS
+layers in `.phero__media`.
 
 ### 3. Nav labels drift up to 3.4px left of the frame
 

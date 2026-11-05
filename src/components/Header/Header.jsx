@@ -33,7 +33,7 @@ export default function Header() {
       <header className={isScrolled ? 'nav is-scrolled' : 'nav'}>
         <div className="container nav__inner">
           <Link className="nav__logo" to="/" aria-label="Rovex">
-            <img src="/assets/logo-rovex-header.svg" width="170" height="44" alt="Rovex" />
+            <img src="/assets/logo-rovex.png" width="170" height="44" alt="Rovex" />
 
           </Link>
 

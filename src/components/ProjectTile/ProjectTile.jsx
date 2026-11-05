@@ -10,7 +10,7 @@ export default function ProjectTile({ project }) {
       <img className="tile__img" src={project.image} width="411" height="294" alt={project.title} />
       <figcaption className="tile__cap">
         <h3 className="tile__title">{project.title}</h3>
-        <p className="tile__meta">{`${project.year} ${t(`projectTypes.${project.type}`)}`}</p>
+        <p className="tile__meta">{` ${t(`projectTypes.${project.type}`)}`}</p>
       </figcaption>
     </figure>
   );

@@ -21,7 +21,7 @@ export default function ProjectGallery() {
             <button
               key={id}
               type="button"
-              role="tab"
+              role="tab" 
               aria-selected={active === id}
               className={active === id ? 'gallery__filter is-active' : 'gallery__filter'}
               onClick={() => setActive(id)}

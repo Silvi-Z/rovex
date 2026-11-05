@@ -11,6 +11,7 @@
     "contact": "Contact",
     "mainAria": "Main",
     "menuAria": "Menu",
+    "closeMenuAria": "Close menu",
     "languageAria": "Language"
   },
   "cta": {
@@ -153,7 +154,8 @@
       "hotel": "Hotels",
       "residential": "Residential",
       "education": "Education",
-      "retail": "Retail"
+      "retail": "Retail",
+      "in-progress": "In Progress"
     }
   },
   "servicesPage": {

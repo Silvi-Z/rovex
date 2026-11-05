@@ -29,6 +29,22 @@ export default function MobileMenu({ id, isOpen, onClose }) {
 
   return (
     <div className="mobile-menu" id={id}>
+      {/* The menu covers the header, so it carries its own close button in
+          the burger's exact spot. */}
+      <div className="mobile-menu__top">
+        <div className="container mobile-menu__top-inner">
+          <button
+            type="button"
+            className="mobile-menu__close"
+            aria-label={t('nav.closeMenuAria')}
+            onClick={onClose}
+          >
+            <span />
+            <span />
+          </button>
+        </div>
+      </div>
+
       <nav className="mobile-menu__nav" aria-label={t('nav.mainAria')}>
         {NAV_ITEMS.map(({ path, key }) => (
           <NavLink

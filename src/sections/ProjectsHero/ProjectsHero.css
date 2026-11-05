@@ -6,13 +6,22 @@
   background: var(--c-black);
 }
 
-/* The exported hero already carries the frame's darkening gradient and the
-   blue edge glow, because the undarkened photo was not available — see the
-   README. Swapping in the clean photo plus CSS layers is a drop-in change. */
+/* Layers, bottom to top, as in the frame:
+   207:86 — photo "the Dvin" (1449 × 1137 at -7, -120), exported at 2× and
+            cropped to the hero box, so `cover` reproduces the frame's crop
+   66:440 — black → transparent diagonal, 113.33°, stops 7.36% / 50.07%
+   207:87 — black → transparent from the top, stops -5.68% / 43.2%
+   66:441 — blue radial glow, ellipse 1453 × 1256 centred at (1529.5, 605),
+            gradient radius 548 × 473.6, #0000ea 1 → 0 */
 .phero__media {
   position: absolute;
   inset: 0;
-  background: url("/assets/projects-hero.png") center / cover no-repeat;
+  background:
+    radial-gradient(548px 473.6px at calc(100% + 89.5px) 100%,
+      rgba(0, 0, 234, 1) 0%, rgba(0, 0, 234, 0) 100%),
+    linear-gradient(180deg, #000 -5.68%, rgba(0, 0, 0, 0) 43.2%),
+    linear-gradient(113.33deg, #000 7.36%, rgba(0, 0, 0, 0) 50.07%),
+    url("/assets/projects-hero.png") center / cover no-repeat;
 }
 
 .phero__content {
@@ -45,4 +54,13 @@
   .phero__content { padding: 190px 0 40px; }
   .phero__title { font-size: 34px; }
   .phero__sub { font-size: 16px; }
+  /* At phone width the fixed-size glow would swamp the photo; scale it to
+     the box, as the services hero does. */
+  .phero__media {
+    background:
+      radial-gradient(70% 45% at 115% 100%, rgba(0, 0, 234, 1) 0%, rgba(0, 0, 234, 0) 100%),
+      linear-gradient(180deg, #000 -5.68%, rgba(0, 0, 0, 0) 43.2%),
+      linear-gradient(113.33deg, #000 7.36%, rgba(0, 0, 0, 0) 50.07%),
+      url("/assets/projects-hero.png") center / cover no-repeat;
+  }
 }

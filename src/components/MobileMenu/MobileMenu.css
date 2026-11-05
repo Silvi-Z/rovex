@@ -17,4 +17,37 @@
   gap: 28px;
 }
 .mobile-menu__link.is-active { color: var(--c-blue); }
-.mobile-menu__lang { justify-content: center; --lang-muted: var(--c-text-faint); }
+/* Close button — same 32 × 32 box and position as the header burger
+   (header padding 26 + burger offset 15 = 41 from the top, on the
+   container's right edge). */
+.mobile-menu__top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding-top: 41px;
+}
+.mobile-menu__top-inner { display: flex; justify-content: flex-end; }
+.mobile-menu__close {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+.mobile-menu__close span {
+  position: absolute;
+  top: 50%; left: 2px; right: 2px;
+  height: 2px;
+  margin-top: -1px;
+  background: var(--c-white);
+  transition: background-color .2s ease;
+}
+.mobile-menu__close span:first-child { transform: rotate(45deg); }
+.mobile-menu__close span:last-child  { transform: rotate(-45deg); }
+.mobile-menu__close:hover span,
+.mobile-menu__close:focus-visible span { background: var(--c-text-dim); }
+
+/* Language switcher as on desktop: every option and separator white, the
+   active one marked by the blue rule (drawn by Header.css's shared
+   `.lang__btn.is-active::after`, repositioned here for the larger type). */
+.mobile-menu__lang { justify-content: center; --lang-muted: var(--c-white); }
+.mobile-menu__lang .lang__btn,
+.mobile-menu__lang .lang__sep { position: relative; color: var(--c-white); }
+.mobile-menu__lang .lang__btn.is-active::after { top: auto; bottom: -6px; }

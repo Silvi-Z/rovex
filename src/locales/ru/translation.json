@@ -11,6 +11,7 @@
     "contact": "Контакты",
     "mainAria": "Основная навигация",
     "menuAria": "Меню",
+    "closeMenuAria": "Закрыть меню",
     "languageAria": "Язык"
   },
   "cta": {
@@ -153,7 +154,8 @@
       "hotel": "Гостиничные",
       "residential": "Жилые",
       "education": "Образовательные",
-      "retail": "Торговые"
+      "retail": "Торговые",
+      "in-progress": "В процессе"
     }
   },
   "servicesPage": {

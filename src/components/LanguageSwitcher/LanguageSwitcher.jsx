@@ -21,6 +21,7 @@ export default function LanguageSwitcher({ className = '', onChange }) {
             title={name}
             aria-label={name}
             aria-pressed={language === code}
+            // className={({ isActive }) => (isActive ? 'nav__link is-active' : 'nav__link')}
             className={language === code ? 'lang__btn is-active' : 'lang__btn'}
             onClick={() => {
               setLanguage(code);

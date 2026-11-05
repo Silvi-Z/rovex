@@ -20,7 +20,6 @@
   align-items: center;
   justify-content: center;
   height: 118px;
-  border: 1px solid var(--c-cell-border);
   margin-right: -1px;          /* collapse the shared vertical borders */
 }
 .partners__cell:last-child { margin-right: 0; }
