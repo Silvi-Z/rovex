@@ -23,8 +23,8 @@ export const CONTACT_ROWS = [
     key: 'phone',
     icon: '/assets/contact-icon-phone.png',
     iconSize: { width: 32, height: 31.8 },
-    text: '+374 98553533',
-    href: 'tel:+37498553533',
+    text: '+374 94707171',
+    href: 'tel:+37494707171',
   },
   {
     key: 'email',
