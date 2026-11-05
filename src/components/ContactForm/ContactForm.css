@@ -110,3 +110,26 @@
   .cform__submit { font-size: 20px; }
   .cform__file { gap: 8px; flex-wrap: wrap; height: auto; padding: 20px 12px; text-align: center; }
 }
+
+/* ------------------------------- status --------------------------------- */
+/* Not in the frame: one line under the button for "sent" / error text. The
+   empty paragraph keeps its height so the card doesn't jump when it fills. */
+.cform__submit:disabled { opacity: .7; cursor: progress; }
+.cform__status {
+  min-height: 17.066px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 17.066px;
+  color: #1c7c3a;
+  text-align: center;
+}
+.cform__status--error { color: #c62828; }
+
+/* Honeypot field: off-screen, never focusable by keyboard. */
+.cform__hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
