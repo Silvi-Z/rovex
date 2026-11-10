@@ -15,6 +15,24 @@ npm run build   # production build → dist/
 npm run preview # serve the production build locally
 ```
 
+## Deploying to rovex.am
+
+```bash
+./deploy.sh              # deploy the latest main to https://rovex.am
+./deploy.sh --rollback   # put the previous version back
+```
+
+Run it in Git Bash on Windows, or any terminal on macOS / Linux. It needs Node
+20.19+ and SSH key access to the server (`ssh root@161.35.197.210` must log in
+without a password); without access it stops before doing anything.
+
+It refuses to deploy uncommitted or unpushed work, so the live site always
+matches GitHub. It builds locally, uploads the build beside the live one and
+switches over with a rename (no half-uploaded state), keeps the replaced
+version for `--rollback`, updates the contact-form backend only if
+`server/contact/` changed, and finally checks that the live site serves the
+new build.
+
 ## Routes
 
 Defined in `src/routes/routes.jsx`; the links come from `src/data/navigation.js`,
