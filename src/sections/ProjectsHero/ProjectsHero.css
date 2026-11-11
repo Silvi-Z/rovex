@@ -7,10 +7,12 @@
 }
 
 /* Layers, bottom to top, as in the frame:
-   207:86 — photo "the Dvin" (1449 × 1137 at -7, -120), exported at 2× and
+   218:86 — photo "the Dvin 2" (1449 × 1137 at -9, -142), exported at 2× and
             cropped to the hero box, so `cover` reproduces the frame's crop
    66:440 — black → transparent diagonal, 113.33°, stops 7.36% / 50.07%
    207:87 — black → transparent from the top, stops -5.68% / 43.2%
+   bottom — the same ramp mirrored from the bottom edge (black ≈ 0.88 at the
+            edge, clear 265px up), measured against the Figma render
    66:441 — blue radial glow, ellipse 1453 × 1256 centred at (1529.5, 605),
             gradient radius 548 × 473.6, #0000ea 1 → 0 */
 .phero__media {
@@ -19,9 +21,10 @@
   background:
     radial-gradient(548px 473.6px at calc(100% + 89.5px) 100%,
       rgba(0, 0, 234, 1) 0%, rgba(0, 0, 234, 0) 100%),
+    linear-gradient(0deg, #000 -5.68%, rgba(0, 0, 0, 0) 43.2%),
     linear-gradient(180deg, #000 -5.68%, rgba(0, 0, 0, 0) 43.2%),
     linear-gradient(113.33deg, #000 7.36%, rgba(0, 0, 0, 0) 50.07%),
-    url("/assets/projects-hero.png") center / cover no-repeat;
+    url("/assets/projects-hero.jpg") center / cover no-repeat;
 }
 
 .phero__content {
@@ -59,8 +62,9 @@
   .phero__media {
     background:
       radial-gradient(70% 45% at 115% 100%, rgba(0, 0, 234, 1) 0%, rgba(0, 0, 234, 0) 100%),
+      linear-gradient(0deg, #000 -5.68%, rgba(0, 0, 0, 0) 43.2%),
       linear-gradient(180deg, #000 -5.68%, rgba(0, 0, 0, 0) 43.2%),
       linear-gradient(113.33deg, #000 7.36%, rgba(0, 0, 0, 0) 50.07%),
-      url("/assets/projects-hero.png") center / cover no-repeat;
+      url("/assets/projects-hero.jpg") center / cover no-repeat;
   }
 }

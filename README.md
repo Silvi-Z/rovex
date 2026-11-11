@@ -242,7 +242,7 @@ src/sections/ProjectsHero/              hero photo + title block
 src/sections/ProjectGallery/            filter tabs + grid
 src/components/ProjectTile/             one tile: image + caption below it
 src/data/projectsPage.js                12 projects + the 5 filters
-public/assets/projects-hero.jpg         hero photo (node 207:86, overlays are CSS)
+public/assets/projects-hero.jpg         hero photo (node 218:86, overlays are CSS)
 public/assets/proj-*.png                12 project photos
 ```
 
@@ -427,7 +427,7 @@ departs from the frame; say the word and it becomes a one-line override.
 
 ### 2. The hero photo carries its overlays — resolved
 
-The frame now uses a different photo (node `207:86`, "the Dvin"), exported
+The frame now uses a different photo (node `218:86`, "the Dvin 2"), exported
 clean at 2× and cropped to the hero box as `projects-hero.jpg`. The two
 darkening gradients (`66:440`, `207:87`) and the blue glow (`66:441`) are CSS
 layers in `.phero__media`.
